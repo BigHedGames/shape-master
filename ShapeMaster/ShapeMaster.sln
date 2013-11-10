@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeMaster", "ShapeMaster\ShapeMaster\ShapeMaster.csproj", "{8F55CCA9-54C3-4008-BC79-C8BB4CEE9870}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "ShapeMasterContent", "ShapeMaster\ShapeMasterContent\ShapeMasterContent.contentproj", "{6BF6F40E-7569-4FD6-9803-E31F074D6FA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F55CCA9-54C3-4008-BC79-C8BB4CEE9870}.Debug|x86.ActiveCfg = Debug|x86
+		{8F55CCA9-54C3-4008-BC79-C8BB4CEE9870}.Debug|x86.Build.0 = Debug|x86
+		{8F55CCA9-54C3-4008-BC79-C8BB4CEE9870}.Release|x86.ActiveCfg = Release|x86
+		{8F55CCA9-54C3-4008-BC79-C8BB4CEE9870}.Release|x86.Build.0 = Release|x86
+		{6BF6F40E-7569-4FD6-9803-E31F074D6FA3}.Debug|x86.ActiveCfg = Debug|x86
+		{6BF6F40E-7569-4FD6-9803-E31F074D6FA3}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
