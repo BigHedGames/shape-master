@@ -1,1 +1,2 @@
 C:\Users\Dustin Urbaniec\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMasterContent\obj\x86\Debug\ShapeMasterContent.contentprojResolveAssemblyReference.cache
+C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMasterContent\obj\x86\Debug\ShapeMasterContent.contentprojResolveAssemblyReference.cache

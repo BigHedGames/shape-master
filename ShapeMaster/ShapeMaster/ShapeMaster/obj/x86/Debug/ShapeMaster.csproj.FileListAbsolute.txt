@@ -4,3 +4,9 @@ C:\Users\Dustin Urbaniec\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\S
 C:\Users\Dustin Urbaniec\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Dustin Urbaniec\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\obj\x86\Debug\ShapeMaster.exe
 C:\Users\Dustin Urbaniec\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\obj\x86\Debug\ShapeMaster.pdb
+C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\ShapeMaster.exe
+C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\ShapeMaster.pdb
+C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\obj\x86\Debug\ShapeMaster.csprojResolveAssemblyReference.cache
+C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\obj\x86\Debug\ShapeMaster.exe
+C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\obj\x86\Debug\ShapeMaster.pdb

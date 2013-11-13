@@ -19,10 +19,17 @@ namespace ShapeMaster
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        const int WINDOW_WIDTH = 800;
+        const int WINDOW_HEIGHT = 600;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            // set resolution to defined constants
+            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
+            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
         }
 
         /// <summary>
