@@ -19,8 +19,18 @@ namespace ShapeMaster
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        // main character sprite support
+        Texture2D spriteChar;
+        Rectangle rectangleChar = new Rectangle((WINDOW_WIDTH / 2) - (CHARACTER_WIDTH / 2), 
+            (WINDOW_HEIGHT / 2) - (CHARACTER_HEIGHT / 2), CHARACTER_WIDTH, CHARACTER_HEIGHT);
+
+        // declare window resolution constants
         const int WINDOW_WIDTH = 800;
         const int WINDOW_HEIGHT = 600;
+
+        // declare character width & height constants
+        const int CHARACTER_WIDTH = 64;
+        const int CHARACTER_HEIGHT = 64;
 
         public Game1()
         {
@@ -55,6 +65,9 @@ namespace ShapeMaster
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+
+            // Load main character
+            spriteChar = Content.Load<Texture2D>("CHAR_CIRCLE");
         }
 
         /// <summary>
@@ -90,7 +103,12 @@ namespace ShapeMaster
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            // draw character to center of screen
+            spriteBatch.Draw(spriteChar, rectangleChar, Color.White);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

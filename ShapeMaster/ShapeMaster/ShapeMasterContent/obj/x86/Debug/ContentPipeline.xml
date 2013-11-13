@@ -1,6 +1,141 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Background.png</Source>
+      <Name>Background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\Background.xnb</Output>
+      <Time>2012-07-16T01:18:50-07:00</Time>
+    </Item>
+    <Item>
+      <Source>CHAR_CIRCLE.png</Source>
+      <Name>CHAR_CIRCLE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_CIRCLE.xnb</Output>
+      <Time>2012-07-13T21:34:18-07:00</Time>
+    </Item>
+    <Item>
+      <Source>CHAR_SQUARE.png</Source>
+      <Name>CHAR_SQUARE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_SQUARE.xnb</Output>
+      <Time>2012-07-13T21:38:42-07:00</Time>
+    </Item>
+    <Item>
+      <Source>CHAR_STAR.png</Source>
+      <Name>CHAR_STAR</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_STAR.xnb</Output>
+      <Time>2012-07-13T21:39:56-07:00</Time>
+    </Item>
+    <Item>
+      <Source>CHAR_TRIANGLE.png</Source>
+      <Name>CHAR_TRIANGLE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_TRIANGLE.xnb</Output>
+      <Time>2012-07-13T21:40:40-07:00</Time>
+    </Item>
+    <Item>
+      <Source>ENEMY_CIRCLE.png</Source>
+      <Name>ENEMY_CIRCLE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\ENEMY_CIRCLE.xnb</Output>
+      <Time>2012-07-13T21:42:26-07:00</Time>
+    </Item>
+    <Item>
+      <Source>ENEMY_SQUARE.png</Source>
+      <Name>ENEMY_SQUARE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\ENEMY_SQUARE.xnb</Output>
+      <Time>2012-07-13T21:43:18-07:00</Time>
+    </Item>
+    <Item>
+      <Source>ENEMY_STAR.png</Source>
+      <Name>ENEMY_STAR</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\ENEMY_STAR.xnb</Output>
+      <Time>2012-07-13T21:43:50-07:00</Time>
+    </Item>
+    <Item>
+      <Source>ENEMY_TRIANGLE.png</Source>
+      <Name>ENEMY_TRIANGLE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\ENEMY_TRIANGLE.xnb</Output>
+      <Time>2012-07-13T21:44:24-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GAMEOVER.png</Source>
+      <Name>GAMEOVER</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\GAMEOVER.xnb</Output>
+      <Time>2012-07-15T17:10:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>SAVE_CIRCLE.png</Source>
+      <Name>SAVE_CIRCLE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SAVE_CIRCLE.xnb</Output>
+      <Time>2012-07-13T21:45:06-07:00</Time>
+    </Item>
+    <Item>
+      <Source>SAVE_SQUARE.png</Source>
+      <Name>SAVE_SQUARE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SAVE_SQUARE.xnb</Output>
+      <Time>2012-07-13T21:45:44-07:00</Time>
+    </Item>
+    <Item>
+      <Source>SAVE_STAR.png</Source>
+      <Name>SAVE_STAR</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SAVE_STAR.xnb</Output>
+      <Time>2012-07-13T21:46:16-07:00</Time>
+    </Item>
+    <Item>
+      <Source>SAVE_TRIANGLE.png</Source>
+      <Name>SAVE_TRIANGLE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SAVE_TRIANGLE.xnb</Output>
+      <Time>2012-07-13T21:46:48-07:00</Time>
+    </Item>
+    <Item>
+      <Source>SCORE.png</Source>
+      <Name>SCORE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SCORE.xnb</Output>
+      <Time>2012-07-15T15:03:30-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
@@ -13,6 +148,30 @@
       <OutputDirectory>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
         <Value>2013-10-18T19:21:00.9282988-07:00</Value>
