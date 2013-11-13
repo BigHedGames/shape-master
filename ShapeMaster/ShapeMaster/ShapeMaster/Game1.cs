@@ -20,9 +20,7 @@ namespace ShapeMaster
         SpriteBatch spriteBatch;
 
         // main character sprite support
-        Texture2D spriteChar;
-        Rectangle rectangleChar = new Rectangle((WINDOW_WIDTH / 2) - (CHARACTER_WIDTH / 2), 
-            (WINDOW_HEIGHT / 2) - (CHARACTER_HEIGHT / 2), CHARACTER_WIDTH, CHARACTER_HEIGHT);
+        Player player;
 
         // declare window resolution constants
         const int WINDOW_WIDTH = 800;
@@ -70,7 +68,7 @@ namespace ShapeMaster
             // TODO: use this.Content to load your game content here
 
             // Load main character
-            spriteChar = Content.Load<Texture2D>("CHAR_CIRCLE");
+            player = new Player(Content, "CHAR_CIRCLE", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH, CHARACTER_HEIGHT);
         }
 
         /// <summary>
@@ -94,6 +92,10 @@ namespace ShapeMaster
                 this.Exit();
 
             // TODO: Add your update logic here
+            
+            // Get keyboard state to move player sprite
+            KeyboardState keyboardState = Keyboard.GetState();
+            player.Move(keyboardState);
 
             base.Update(gameTime);
         }
@@ -104,12 +106,12 @@ namespace ShapeMaster
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
 
             // draw character to center of screen
-            spriteBatch.Draw(spriteChar, rectangleChar, Color.White);
+            player.Draw(spriteBatch);
 
             spriteBatch.End();
 
