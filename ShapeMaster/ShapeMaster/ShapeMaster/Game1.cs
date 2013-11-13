@@ -37,6 +37,9 @@ namespace ShapeMaster
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
+            // make mouse visible
+            IsMouseVisible = true;
+
             // set resolution to defined constants
             graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
             graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
