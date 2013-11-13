@@ -13,6 +13,7 @@ namespace ShapeMaster
 {
     /// <summary>
     /// This is the main type for your game
+    /// We are working on a port of Jason's game done in GameSalad
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
