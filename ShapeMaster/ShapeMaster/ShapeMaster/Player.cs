@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,24 +54,48 @@ namespace ShapeMaster
 
         public void Move(KeyboardState keyboardState)
         {
-            if (keyboardState.IsKeyDown(Keys.Up))
+            
+            // logic for movement in diagonals
+            if (keyboardState.IsKeyDown(Keys.Right) && keyboardState.IsKeyDown(Keys.Up))
+            {
+                drawRectangle.Y -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+                drawRectangle.X += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+            }
+            else if (keyboardState.IsKeyDown(Keys.Right) && keyboardState.IsKeyDown(Keys.Down))
+            {
+                drawRectangle.Y += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+                drawRectangle.X += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+            }
+
+            else if (keyboardState.IsKeyDown(Keys.Left) && keyboardState.IsKeyDown(Keys.Up))
+            {
+                drawRectangle.Y -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+                drawRectangle.X -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+            }
+            else if (keyboardState.IsKeyDown(Keys.Left) && keyboardState.IsKeyDown(Keys.Down))
+            {
+                drawRectangle.Y += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+                drawRectangle.X -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+            }
+
+            // logic for movement in standard four directions
+            else if (keyboardState.IsKeyDown(Keys.Up))
             {
                 drawRectangle.Y -= Velocity;
             }
-            if (keyboardState.IsKeyDown(Keys.Down))
+            else if (keyboardState.IsKeyDown(Keys.Down))
             {
                 drawRectangle.Y += Velocity;
             }
-            if (keyboardState.IsKeyDown(Keys.Left))
+            else if (keyboardState.IsKeyDown(Keys.Left))
             {
                 drawRectangle.X -= Velocity;
             }
-            if (keyboardState.IsKeyDown(Keys.Right))
+            else if (keyboardState.IsKeyDown(Keys.Right))
             {
                 drawRectangle.X += Velocity;
-
-                
             }
+
         }
         #endregion
 
