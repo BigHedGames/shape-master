@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+// This is our game.
 namespace ShapeMaster
 {
     /// <summary>
@@ -125,8 +126,7 @@ namespace ShapeMaster
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
 
             // draw character to center of screen
