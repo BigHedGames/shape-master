@@ -82,7 +82,7 @@ namespace ShapeMaster
             // TODO: use this.Content to load your game content here
 
             // Load characters
-            player = new Character(Content, "CHAR_CIRCLE", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
+            player = new Character(Content, "CIRCLE", "CHAR_EYEZ", "CHAR_MOUTH", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
                 CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         }
