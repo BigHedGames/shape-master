@@ -18,6 +18,7 @@ namespace ShapeMaster
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         #region Constants
+
         // declare window resolution constants
         const int WINDOW_WIDTH = 800;
         const int WINDOW_HEIGHT = 600;
@@ -25,15 +26,18 @@ namespace ShapeMaster
         // declare character width & height constants
         const int CHARACTER_WIDTH = 64;
         const int CHARACTER_HEIGHT = 64;
+
         #endregion
 
         #region Fields
+
         // graphics support
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         // main character sprite support
         Character player;
+
         #endregion
 
         #region Constructor
@@ -42,6 +46,7 @@ namespace ShapeMaster
         /// </summary>
         public Game1()
         {
+            // graphics support.
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
@@ -63,8 +68,7 @@ namespace ShapeMaster
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            // initialize the XNA framework.
             base.Initialize();
         }
         #endregion
@@ -79,10 +83,9 @@ namespace ShapeMaster
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
-
             // Load characters
-            player = new Character(Content, "CIRCLE", "CHAR_EYEZ", "CHAR_MOUTH", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
+            player = new Character(Content, "CIRCLE", "CHAR_EYEZ", "CHAR_MOUTH", 
+                WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
                 CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         }
@@ -111,12 +114,13 @@ namespace ShapeMaster
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
-            
             // Get keyboard state to move player sprite
             KeyboardState keyboardState = Keyboard.GetState();
-            player.Move(keyboardState);
 
+            // update the player
+            player.Update(keyboardState);
+
+            // update the game time.
             base.Update(gameTime);
         }
         #endregion
@@ -128,12 +132,16 @@ namespace ShapeMaster
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            // Black background
             GraphicsDevice.Clear(Color.Black);
+
+            // begin the sprite batch
             spriteBatch.Begin();
 
-            // draw character to center of screen
+            // draw the player
             player.Draw(spriteBatch);
 
+            // end the sprite batch
             spriteBatch.End();
 
             base.Draw(gameTime);

@@ -15,6 +15,8 @@ namespace ShapeMaster
     class Shape
     {
         #region Fields
+
+        // Draw rectangle, animation rectangle, and sprite image
         Rectangle drawRectangle;
         Rectangle sourceRectangle;
         Texture2D spriteTexture;
@@ -22,32 +24,52 @@ namespace ShapeMaster
         #endregion
 
         #region Constructor
-        public Shape(ContentManager contentManager, string spriteName, int x, int y, int width, int height)
+
+        /// <summary>
+        /// Shape constructor.
+        /// </summary>
+        /// <param name="contentManager">The content manager.</param>
+        /// <param name="spriteName">The name of the asset to start with.</param>
+        public Shape(ContentManager contentManager, string spriteName)
         {
             LoadContent(contentManager, spriteName);
-
-            drawRectangle = new Rectangle(x - width / 2, y - height / 2, width, height);
         }
 
         #endregion
 
-        #region Private Methods
-        private void LoadContent(ContentManager contentManager, string spriteName)
-        {
-            spriteTexture = contentManager.Load<Texture2D>(spriteName);
-        }
-
-        #endregion
-
+        
         #region Public Methods
+
+        /// <summary>
+        /// Draw the Mouth.
+        /// </summary>
+        /// <param name="spriteBatch">The sprite batch.</param>
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(spriteTexture, drawRectangle, Color.Green);
         }
 
+        /// <summary>
+        /// Set the mouth draw rectangle position.
+        /// </summary>
+        /// <param name="rectangle">The draw rectangle to set to.</param>
         public void SetPosition(Rectangle rectangle)
         {
             drawRectangle = rectangle;
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Method to load the content into the content manager.
+        /// </summary>
+        /// <param name="contentManager">The content manager.</param>
+        /// <param name="spriteName">The asset class name.</param>
+        private void LoadContent(ContentManager contentManager, string spriteName)
+        {
+            spriteTexture = contentManager.Load<Texture2D>(spriteName);
         }
 
         #endregion
