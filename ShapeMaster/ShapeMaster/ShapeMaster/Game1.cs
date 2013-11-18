@@ -34,6 +34,9 @@ namespace ShapeMaster
 
         // main character sprite support
         Player player;
+
+        // second player character
+        Player player2;
         #endregion
 
         #region Constructor
@@ -81,8 +84,10 @@ namespace ShapeMaster
 
             // TODO: use this.Content to load your game content here
 
-            // Load main character
+            // Load characters
             player = new Player(Content, "CHAR_CIRCLE", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH, CHARACTER_HEIGHT);
+            player2 = new Player(Content, "ENEMY_STAR", WINDOW_WIDTH / 3, WINDOW_HEIGHT / 3, CHARACTER_WIDTH, CHARACTER_HEIGHT);
+
         }
         #endregion
 
@@ -131,6 +136,7 @@ namespace ShapeMaster
 
             // draw character to center of screen
             player.Draw(spriteBatch);
+            player2.Draw(spriteBatch);
 
             spriteBatch.End();
 
