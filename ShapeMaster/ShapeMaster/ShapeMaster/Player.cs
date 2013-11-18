@@ -27,6 +27,7 @@ namespace ShapeMaster
         public int Velocity { get; set; }
         #endregion
 
+        #region Constructor
         /// <summary>
         /// Player class
         /// </summary>
@@ -42,7 +43,9 @@ namespace ShapeMaster
 
             Velocity = INITIAL_VELOCITY;
         }
+        #endregion
 
+        #region Public Methods
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(spriteTexture, drawRectangle, Color.White);
@@ -67,7 +70,7 @@ namespace ShapeMaster
                 drawRectangle.X += Velocity;
             }
         }
-
+        #endregion
 
         #region Private Methods
         /// <summary>

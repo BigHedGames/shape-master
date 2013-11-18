@@ -16,12 +16,7 @@ namespace ShapeMaster
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-
-        // main character sprite support
-        Player player;
-
+        #region Constants
         // declare window resolution constants
         const int WINDOW_WIDTH = 800;
         const int WINDOW_HEIGHT = 600;
@@ -29,7 +24,21 @@ namespace ShapeMaster
         // declare character width & height constants
         const int CHARACTER_WIDTH = 64;
         const int CHARACTER_HEIGHT = 64;
+        #endregion
 
+        #region Fields
+        // graphics support
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+
+        // main character sprite support
+        Player player;
+        #endregion
+
+        #region Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -42,7 +51,9 @@ namespace ShapeMaster
             graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
             graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
         }
+        #endregion
 
+        #region Initialize
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -55,7 +66,9 @@ namespace ShapeMaster
 
             base.Initialize();
         }
+        #endregion
 
+        #region LoadContent
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -70,7 +83,9 @@ namespace ShapeMaster
             // Load main character
             player = new Player(Content, "CHAR_CIRCLE", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH, CHARACTER_HEIGHT);
         }
+        #endregion
 
+        #region UnloadContent
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
@@ -79,7 +94,9 @@ namespace ShapeMaster
         {
             // TODO: Unload any non ContentManager content here
         }
+        #endregion
 
+        #region Update
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -99,7 +116,9 @@ namespace ShapeMaster
 
             base.Update(gameTime);
         }
+        #endregion
 
+        #region Draw
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
@@ -117,5 +136,6 @@ namespace ShapeMaster
 
             base.Draw(gameTime);
         }
+        #endregion
     }
 }
