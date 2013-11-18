@@ -38,6 +38,9 @@ namespace ShapeMaster
         // main character sprite support
         Character player;
 
+        // declare global enumeration that stores the player shape status
+        enum shapeStatus { Circle, Square, Star, Triangle };
+
         #endregion
 
         #region Constructor

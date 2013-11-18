@@ -112,10 +112,6 @@ namespace ShapeMaster
             mouth.SetPosition(positionRectangle);
         }
 
-        #endregion
-
-        #region Private Methods
-
         /// <summary>
         /// Move the sprite based on keyboard input.
         /// </summary>
@@ -188,8 +184,11 @@ namespace ShapeMaster
             {
                 positionRectangle.Y = boundaryBottom - positionRectangle.Height;
             }
-
         }
+
+        #endregion
+
+        #region Private Methods
 
         #endregion
     }
