@@ -90,21 +90,24 @@ namespace ShapeMaster
             }
 
             // logic for movement in standard four directions
-            else if (keyboardState.IsKeyDown(Keys.Up))
+            else
             {
-                drawRectangle.Y -= Velocity;
-            }
-            else if (keyboardState.IsKeyDown(Keys.Down))
-            {
-                drawRectangle.Y += Velocity;
-            }
-            else if (keyboardState.IsKeyDown(Keys.Left))
-            {
-                drawRectangle.X -= Velocity;
-            }
-            else if (keyboardState.IsKeyDown(Keys.Right))
-            {
-                drawRectangle.X += Velocity;
+                if (keyboardState.IsKeyDown(Keys.Up))
+                {
+                    drawRectangle.Y -= Velocity;
+                }
+                if (keyboardState.IsKeyDown(Keys.Down))
+                {
+                    drawRectangle.Y += Velocity;
+                }
+                if (keyboardState.IsKeyDown(Keys.Left))
+                {
+                    drawRectangle.X -= Velocity;
+                }
+                if (keyboardState.IsKeyDown(Keys.Right))
+                {
+                    drawRectangle.X += Velocity;
+                }
             }
 
             // set movement boundaries
