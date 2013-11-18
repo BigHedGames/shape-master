@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace ShapeMaster
     {
         #region Constants
         const int INITIAL_VELOCITY = 5;
+        readonly double DIAGONAL_FACTOR = 1.0 / Math.Sqrt(2.0);
         #endregion
 
         #region Fields
@@ -68,6 +70,8 @@ namespace ShapeMaster
             if (keyboardState.IsKeyDown(Keys.Right))
             {
                 drawRectangle.X += Velocity;
+
+                
             }
         }
         #endregion
