@@ -18,8 +18,12 @@ namespace ShapeMaster
 
         // Draw rectangle, animation rectangle, and sprite image
         Rectangle drawRectangle;
-        Rectangle sourceRectangle;
-        Texture2D spriteTexture;
+        //Rectangle sourceRectangle;
+
+        // Declare variables to hold mouth art
+        Texture2D charMouth;
+        Texture2D madMouth;
+        Texture2D saveMouth;
 
         #endregion
 
@@ -29,10 +33,9 @@ namespace ShapeMaster
         /// Mouth constructor.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        /// <param name="spriteName">The name of the asset to start with.</param>
-        public Mouth(ContentManager contentManager, string spriteName)
+        public Mouth(ContentManager contentManager)
         {
-            LoadContent(contentManager, spriteName);
+            LoadContent(contentManager);
         }
 
         #endregion
@@ -45,7 +48,7 @@ namespace ShapeMaster
         /// <param name="spriteBatch">The sprite batch.</param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(spriteTexture, drawRectangle, Color.White);
+            spriteBatch.Draw(charMouth, drawRectangle, Color.White);
         }
 
         /// <summary>
@@ -65,10 +68,11 @@ namespace ShapeMaster
         /// Method to load the content into the content manager.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        /// <param name="spriteName">The asset class name.</param>
-        private void LoadContent(ContentManager contentManager, string spriteName)
+        private void LoadContent(ContentManager contentManager)
         {
-            spriteTexture = contentManager.Load<Texture2D>(spriteName);
+            charMouth = contentManager.Load<Texture2D>("CHAR_MOUTH");
+            madMouth = contentManager.Load<Texture2D>("MAD_MOUTH");
+            saveMouth = contentManager.Load<Texture2D>("SAVED_MOUTH");
         }
 
         #endregion
