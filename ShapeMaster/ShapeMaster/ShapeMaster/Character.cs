@@ -38,6 +38,9 @@ namespace ShapeMaster
         Eyes eyes;
         Mouth mouth;
 
+        // character movement status to pass to sub-sprites
+        MovementStatus movementStatus;
+
         #endregion
 
         #region Properties
@@ -102,17 +105,18 @@ namespace ShapeMaster
         /// Update the sprites.
         /// </summary>
         /// <param name="keyboardState">The keyboard state which provides keyboard input.</param>
-        public void Update(KeyboardState keyboardState)
+        public void Update(KeyboardState keyboardState, GameTime gameTime)
         {
             // move the sprite
             Move(keyboardState);
 
             // Set shape status of character
             ShapeShift(keyboardState);
-            shape.ChangeStatus(CharShapeStatus);
+
+            // update the sub-sprites
+            shape.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
 
             // set the position of the sub-sprites
-            shape.SetPosition(positionRectangle);
             eyes.SetPosition(positionRectangle);
             mouth.SetPosition(positionRectangle);
         }
@@ -129,24 +133,28 @@ namespace ShapeMaster
             // logic for movement in diagonals
             if (keyboardState.IsKeyDown(Keys.Right) && keyboardState.IsKeyDown(Keys.Up))
             {
+                movementStatus = MovementStatus.NorthEast;
                 positionRectangle.Y -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
                 positionRectangle.X += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
             }
 
             else if (keyboardState.IsKeyDown(Keys.Right) && keyboardState.IsKeyDown(Keys.Down))
             {
+                movementStatus = MovementStatus.SouthEast;
                 positionRectangle.Y += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
                 positionRectangle.X += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
             }
 
             else if (keyboardState.IsKeyDown(Keys.Left) && keyboardState.IsKeyDown(Keys.Up))
             {
+                movementStatus = MovementStatus.NorthWest;
                 positionRectangle.Y -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
                 positionRectangle.X -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
             }
 
             else if (keyboardState.IsKeyDown(Keys.Left) && keyboardState.IsKeyDown(Keys.Down))
             {
+                movementStatus = MovementStatus.SouthWest;
                 positionRectangle.Y += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
                 positionRectangle.X -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
             }
@@ -156,23 +164,34 @@ namespace ShapeMaster
             {
                 if (keyboardState.IsKeyDown(Keys.Up))
                 {
+                    movementStatus = MovementStatus.North;
                     positionRectangle.Y -= Velocity;
                 }
 
                 if (keyboardState.IsKeyDown(Keys.Down))
                 {
+                    movementStatus = MovementStatus.South;
                     positionRectangle.Y += Velocity;
                 }
 
                 if (keyboardState.IsKeyDown(Keys.Left))
                 {
+                    movementStatus = MovementStatus.West;
                     positionRectangle.X -= Velocity;
                 }
 
                 if (keyboardState.IsKeyDown(Keys.Right))
                 {
+                    movementStatus = MovementStatus.East;
                     positionRectangle.X += Velocity;
                 }
+            }
+
+            // check for stationary status
+            if (!keyboardState.IsKeyDown(Keys.Up) && !keyboardState.IsKeyDown(Keys.Down) &&
+                !keyboardState.IsKeyDown(Keys.Left) && !keyboardState.IsKeyDown(Keys.Right))
+            {
+                movementStatus = MovementStatus.Stationary;
             }
 
             // If the sprite has moved passed the boundaries, put it back.

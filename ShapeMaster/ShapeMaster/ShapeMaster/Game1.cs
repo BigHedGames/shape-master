@@ -117,7 +117,7 @@ namespace ShapeMaster
             KeyboardState keyboardState = Keyboard.GetState();
 
             // update the player
-            player.Update(keyboardState);
+            player.Update(keyboardState, gameTime);
 
             // update the game time.
             base.Update(gameTime);
