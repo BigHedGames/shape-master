@@ -18,8 +18,16 @@ namespace ShapeMaster
 
         // Draw rectangle, animation rectangle, and sprite image
         Rectangle drawRectangle;
-        Rectangle sourceRectangle;
-        Texture2D spriteTexture;
+        //Rectangle sourceRectangle;
+
+        // Declare variables to hold shape art
+        Texture2D shapeCircle;
+        Texture2D shapeSquare;
+        Texture2D shapeStar;
+        Texture2D shapeTriangle;
+
+        // Declare variable to hold shape status
+        ShapeStatus CharShapeStatus;
 
         #endregion
 
@@ -29,10 +37,9 @@ namespace ShapeMaster
         /// Shape constructor.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        /// <param name="spriteName">The name of the asset to start with.</param>
-        public Shape(ContentManager contentManager, string spriteName)
+        public Shape(ContentManager contentManager)
         {
-            LoadContent(contentManager, spriteName);
+            LoadContent(contentManager);
         }
 
         #endregion
@@ -46,7 +53,26 @@ namespace ShapeMaster
         /// <param name="spriteBatch">The sprite batch.</param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(spriteTexture, drawRectangle, Color.Green);
+            // Shapeshifting draw logic
+            if (CharShapeStatus == ShapeStatus.Circle)
+            {
+                spriteBatch.Draw(shapeCircle, drawRectangle, Color.Green);
+            }
+
+            if (CharShapeStatus == ShapeStatus.Square)
+            {
+                spriteBatch.Draw(shapeSquare, drawRectangle, Color.Green);
+            }
+
+            if (CharShapeStatus == ShapeStatus.Star)
+            {
+                spriteBatch.Draw(shapeStar, drawRectangle, Color.Green);
+            }
+
+            if (CharShapeStatus == ShapeStatus.Triangle)
+            {
+                spriteBatch.Draw(shapeTriangle, drawRectangle, Color.Green);
+            }
         }
 
         /// <summary>
@@ -58,6 +84,11 @@ namespace ShapeMaster
             drawRectangle = rectangle;
         }
 
+        public void ChangeStatus(ShapeStatus shapeStatus)
+        {
+            CharShapeStatus = shapeStatus;
+        }
+
         #endregion
 
         #region Private Methods
@@ -66,10 +97,12 @@ namespace ShapeMaster
         /// Method to load the content into the content manager.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        /// <param name="spriteName">The asset class name.</param>
-        private void LoadContent(ContentManager contentManager, string spriteName)
+        private void LoadContent(ContentManager contentManager)
         {
-            spriteTexture = contentManager.Load<Texture2D>(spriteName);
+            shapeCircle = contentManager.Load<Texture2D>("CIRCLE");
+            shapeSquare = contentManager.Load<Texture2D>("SQUARE");
+            shapeStar = contentManager.Load<Texture2D>("STAR");
+            shapeTriangle = contentManager.Load<Texture2D>("TRIANGLE");
         }
 
         #endregion

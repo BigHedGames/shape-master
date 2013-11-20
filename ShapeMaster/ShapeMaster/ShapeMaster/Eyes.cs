@@ -18,11 +18,12 @@ namespace ShapeMaster
 
         // Draw rectangle, animation rectangle, and sprite image
         Rectangle drawRectangle;
-        Rectangle sourceRectangle;
-        Texture2D spriteTexture;
+        //Rectangle sourceRectangle;
 
-        // declare variables to hold eyes
-        Texture2D eyes0;
+        // Declare variables to hold eye art
+        Texture2D charEyes;
+        Texture2D madEyes;
+        Texture2D saveEyes;
 
         #endregion
 
@@ -34,7 +35,7 @@ namespace ShapeMaster
         /// <param name="contentManager">The content manager.</param>
         public Eyes(ContentManager contentManager)
         {
-            
+            LoadContent(contentManager);
         }
 
         #endregion
@@ -48,7 +49,7 @@ namespace ShapeMaster
         /// <param name="spriteBatch">The sprite batch.</param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(spriteTexture, drawRectangle, Color.White);
+            spriteBatch.Draw(charEyes, drawRectangle, Color.White);
         }
 
         /// <summary>
@@ -60,13 +61,6 @@ namespace ShapeMaster
             drawRectangle = rectangle;
         }
 
-        public void LoadContent()
-        {
-            // load images to sprite variables
-            
-            
-        }
-
         #endregion
 
         #region Private Methods
@@ -75,10 +69,11 @@ namespace ShapeMaster
         /// Method to load the content into the content manager.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        /// <param name="spriteName">The asset class name.</param>
-        private void LoadContent(ContentManager contentManager, string spriteName)
+        private void LoadContent(ContentManager contentManager)
         {
-            spriteTexture = contentManager.Load<Texture2D>(spriteName);
+            charEyes = contentManager.Load<Texture2D>("CHAR_EYEZ");
+            madEyes = contentManager.Load<Texture2D>("MAD_EYEZ");
+            saveEyes = contentManager.Load<Texture2D>("SAVED_EYEZ");
         }
 
         #endregion

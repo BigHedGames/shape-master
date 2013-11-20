@@ -84,9 +84,8 @@ namespace ShapeMaster
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load characters
-            //player = new Character(Content, "CIRCLE", "CHAR_EYEZ", "CHAR_MOUTH",
-            //    WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
-            //    CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT);
+            player = new Character(Content, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
+                CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         }
         #endregion

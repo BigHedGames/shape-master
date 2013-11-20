@@ -20,9 +20,6 @@ namespace ShapeMaster
         const int INITIAL_VELOCITY = 5;
         readonly double DIAGONAL_FACTOR = 1.0 / Math.Sqrt(2.0);
 
-        // declare enumeration that stores the player shape status
-        enum ShapeStatus { Circle, Square, Star, Triangle };
-
         #endregion
 
         #region Fields
@@ -41,15 +38,15 @@ namespace ShapeMaster
         Eyes eyes;
         Mouth mouth;
 
-        // declare variable to hold status of player's shape
-        ShapeStatus shapeStatus;
-
         #endregion
 
         #region Properties
 
         // Velocity (publicly available for potential power-ups/other external modifications
-        public int Velocity { get; set; }
+        public int Velocity { get; private set; }
+
+        // Declare property to hold status of player's shape
+        public ShapeStatus CharShapeStatus { get; private set; }
 
         #endregion
 
@@ -78,9 +75,11 @@ namespace ShapeMaster
             boundaryRight = windowWidth;
 
             // create the shape object
-            shape = new Shape(contentManager, shapeSpriteName);
+            shape = new Shape(contentManager);
             eyes = new Eyes(contentManager);
-            mouth = new Mouth(contentManager, mouthSpriteName);
+            mouth = new Mouth(contentManager);
+
+            CharShapeStatus = ShapeStatus.Circle;
         }
 
         #endregion
@@ -108,17 +107,24 @@ namespace ShapeMaster
             // move the sprite
             Move(keyboardState);
 
+            // Set shape status of character
+            ShapeShift(keyboardState);
+            shape.ChangeStatus(CharShapeStatus);
+
             // set the position of the sub-sprites
             shape.SetPosition(positionRectangle);
             eyes.SetPosition(positionRectangle);
             mouth.SetPosition(positionRectangle);
         }
 
-        /// <summary>
+        #endregion
+
+        #region Private Methods
+            /// <summary>
         /// Move the sprite based on keyboard input.
         /// </summary>
         /// <param name="keyboardState">The keyboard state which provides the keyboard input.</param>
-        public void Move(KeyboardState keyboardState)
+        private void Move(KeyboardState keyboardState)
         {
             // logic for movement in diagonals
             if (keyboardState.IsKeyDown(Keys.Right) && keyboardState.IsKeyDown(Keys.Up))
@@ -188,34 +194,30 @@ namespace ShapeMaster
             }
         }
 
-        public void ShapeShift(KeyboardState keyboardState)
+        private void ShapeShift(KeyboardState keyboardState)
         {
-            
+
             // set key definitions to change shape
             if (keyboardState.IsKeyDown(Keys.A))
             {
-                shapeStatus = ShapeStatus.Circle;
+                CharShapeStatus = ShapeStatus.Circle;
             }
 
             if (keyboardState.IsKeyDown(Keys.S))
             {
-                shapeStatus = ShapeStatus.Square;
+                CharShapeStatus = ShapeStatus.Square;
             }
 
             if (keyboardState.IsKeyDown(Keys.D))
             {
-                shapeStatus = ShapeStatus.Star;
+                CharShapeStatus = ShapeStatus.Star;
             }
 
             if (keyboardState.IsKeyDown(Keys.F))
             {
-                shapeStatus = ShapeStatus.Triangle;
+                CharShapeStatus = ShapeStatus.Triangle;
             }
         }
-
-        #endregion
-
-        #region Private Methods
 
         #endregion
     }
