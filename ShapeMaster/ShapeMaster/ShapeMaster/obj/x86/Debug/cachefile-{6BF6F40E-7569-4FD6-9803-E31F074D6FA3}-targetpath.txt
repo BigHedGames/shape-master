@@ -23,3 +23,7 @@ Content\SAVED_MOUTH.xnb
 Content\SQUARE.xnb
 Content\STAR.xnb
 Content\TRIANGLE.xnb
+Content\CIRCLEZ.xnb
+Content\SQUAREZ.xnb
+Content\STARZ.xnb
+Content\TRIANGLEZ.xnb
