@@ -20,6 +20,9 @@ namespace ShapeMaster
         const int INITIAL_VELOCITY = 5;
         readonly double DIAGONAL_FACTOR = 1.0 / Math.Sqrt(2.0);
 
+        // declare enumeration that stores the player shape status
+        enum ShapeStatus { Circle, Square, Star, Triangle };
+
         #endregion
 
         #region Fields
@@ -38,6 +41,9 @@ namespace ShapeMaster
         Eyes eyes;
         Mouth mouth;
 
+        // declare variable to hold status of player's shape
+        ShapeStatus shapeStatus;
+
         #endregion
 
         #region Properties
@@ -53,17 +59,13 @@ namespace ShapeMaster
         /// Character constructor.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        /// <param name="shapeSpriteName">The shape sprite name.</param>
-        /// <param name="eyesSpriteName">The eyes sprite name.</param>
-        /// <param name="mouthSpriteName">The mouth sprite name.</param>
         /// <param name="x">The center x position.</param>
         /// <param name="y">The center y position.</param>
         /// <param name="width">The width of the sprite.</param>
         /// <param name="height">The height of the sprite.</param>
         /// <param name="windowWidth">The window width (needed for the boundaries).</param>
         /// <param name="windowHeight">The window height (needed for the boundaries).</param>
-        public Character(ContentManager contentManager, string shapeSpriteName, string eyesSpriteName, string mouthSpriteName, 
-            int x, int y, int width, int height, int windowWidth, int windowHeight)
+        public Character(ContentManager contentManager, int x, int y, int width, int height, int windowWidth, int windowHeight)
         {
             // define the position rectangle
             positionRectangle = new Rectangle(x - width / 2, y - height / 2, width, height);
@@ -77,7 +79,7 @@ namespace ShapeMaster
 
             // create the shape object
             shape = new Shape(contentManager, shapeSpriteName);
-            eyes = new Eyes(contentManager, eyesSpriteName);
+            eyes = new Eyes(contentManager);
             mouth = new Mouth(contentManager, mouthSpriteName);
         }
 
@@ -167,7 +169,7 @@ namespace ShapeMaster
                 }
             }
 
-            // If the sprite has mooved passed the boundaries, put it back.
+            // If the sprite has moved passed the boundaries, put it back.
             if (positionRectangle.X < boundaryLeft)
             {
                 positionRectangle.X = boundaryLeft;
@@ -183,6 +185,31 @@ namespace ShapeMaster
             if (positionRectangle.Y + positionRectangle.Height > boundaryBottom)
             {
                 positionRectangle.Y = boundaryBottom - positionRectangle.Height;
+            }
+        }
+
+        public void ShapeShift(KeyboardState keyboardState)
+        {
+            
+            // set key definitions to change shape
+            if (keyboardState.IsKeyDown(Keys.A))
+            {
+                shapeStatus = ShapeStatus.Circle;
+            }
+
+            if (keyboardState.IsKeyDown(Keys.S))
+            {
+                shapeStatus = ShapeStatus.Square;
+            }
+
+            if (keyboardState.IsKeyDown(Keys.D))
+            {
+                shapeStatus = ShapeStatus.Star;
+            }
+
+            if (keyboardState.IsKeyDown(Keys.F))
+            {
+                shapeStatus = ShapeStatus.Triangle;
             }
         }
 

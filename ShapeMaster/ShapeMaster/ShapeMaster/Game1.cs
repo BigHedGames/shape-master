@@ -38,9 +38,6 @@ namespace ShapeMaster
         // main character sprite support
         Character player;
 
-        // declare global enumeration that stores the player shape status
-        enum shapeStatus { Circle, Square, Star, Triangle };
-
         #endregion
 
         #region Constructor
@@ -87,9 +84,9 @@ namespace ShapeMaster
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load characters
-            player = new Character(Content, "CIRCLE", "CHAR_EYEZ", "CHAR_MOUTH", 
-                WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
-                CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT);
+            //player = new Character(Content, "CIRCLE", "CHAR_EYEZ", "CHAR_MOUTH",
+            //    WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
+            //    CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         }
         #endregion
