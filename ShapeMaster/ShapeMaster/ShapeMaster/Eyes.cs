@@ -21,6 +21,9 @@ namespace ShapeMaster
         Rectangle sourceRectangle;
         Texture2D spriteTexture;
 
+        // declare variables to hold eyes
+        Texture2D eyes0;
+
         #endregion
 
         #region Constructor
@@ -29,10 +32,9 @@ namespace ShapeMaster
         /// Eyes constructor.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        /// <param name="spriteName">The name of the asset to start with.</param>
-        public Eyes(ContentManager contentManager, string spriteName)
+        public Eyes(ContentManager contentManager)
         {
-            LoadContent(contentManager, spriteName);
+            
         }
 
         #endregion
@@ -56,6 +58,13 @@ namespace ShapeMaster
         public void SetPosition(Rectangle rectangle)
         {
             drawRectangle = rectangle;
+        }
+
+        public void LoadContent()
+        {
+            // load images to sprite variables
+            
+            
         }
 
         #endregion
