@@ -37,7 +37,6 @@ namespace ShapeMaster
 
         #endregion
 
-        
         #region Public Methods
 
         /// <summary>
