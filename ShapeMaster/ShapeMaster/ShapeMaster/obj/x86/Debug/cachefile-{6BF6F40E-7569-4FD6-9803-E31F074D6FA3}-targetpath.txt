@@ -27,3 +27,8 @@ Content\CIRCLEZ.xnb
 Content\SQUAREZ.xnb
 Content\STARZ.xnb
 Content\TRIANGLEZ.xnb
+Content\EYEZEAST.xnb
+Content\EYEZNE.xnb
+Content\EYEZNORTH.xnb
+Content\EYEZSE.xnb
+Content\EYEZSOUTH.xnb

@@ -12,13 +12,9 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ShapeMaster
 {
-    class Mouth
+    class Mouth : SpriteBase
     {
         #region Fields
-
-        // Draw rectangle, animation rectangle, and sprite image
-        Rectangle drawRectangle;
-        //Rectangle sourceRectangle;
 
         // Declare variables to hold mouth art
         Texture2D charMouth;
@@ -33,7 +29,8 @@ namespace ShapeMaster
         /// Mouth constructor.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        public Mouth(ContentManager contentManager)
+        public Mouth(ContentManager contentManager, int spriteWidth)
+            : base(contentManager, spriteWidth)
         {
             LoadContent(contentManager);
         }
@@ -52,12 +49,20 @@ namespace ShapeMaster
         }
 
         /// <summary>
-        /// Set the mouth draw rectangle position.
+        /// Updates this sub-sprite.
         /// </summary>
-        /// <param name="rectangle">The draw rectangle to set to.</param>
-        public void SetPosition(Rectangle rectangle)
+        /// <param name="drawRec">The rectangle to draw in.</param>
+        /// <param name="shapeStatus">The shape that the full sprite should take.</param>
+        /// <param name="movementStatus">The direction the sprite is moving.</param>
+        /// <param name="gameTime">For animation timers.</param>
+        public void Update(Rectangle drawRec, ShapeStatus shapeStatus, MovementStatus movementStatus, GameTime gameTime)
         {
-            drawRectangle = rectangle;
+            // update and animate the base
+            base.Update(drawRec, shapeStatus, gameTime);
+            base.Animate(gameTime);
+
+            // run animations
+            //Animate(movementStatus, gameTime);
         }
 
         #endregion

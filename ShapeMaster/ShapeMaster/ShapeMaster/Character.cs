@@ -79,8 +79,8 @@ namespace ShapeMaster
 
             // create the shape object
             shape = new Shape(contentManager, width);
-            eyes = new Eyes(contentManager);
-            mouth = new Mouth(contentManager);
+            eyes = new Eyes(contentManager, width);
+            mouth = new Mouth(contentManager, width);
 
             CharShapeStatus = ShapeStatus.Circle;
         }
@@ -115,10 +115,8 @@ namespace ShapeMaster
 
             // update the sub-sprites
             shape.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
-
-            // set the position of the sub-sprites
-            eyes.SetPosition(positionRectangle);
-            mouth.SetPosition(positionRectangle);
+            eyes.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
+            mouth.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
         }
 
         #endregion

@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
+    <Compile Include="SpriteBase.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Eyes.cs" />
     <Compile Include="Mouth.cs" />
