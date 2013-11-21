@@ -78,7 +78,7 @@ namespace ShapeMaster
             boundaryRight = windowWidth;
 
             // create the shape object
-            shape = new Shape(contentManager);
+            shape = new Shape(contentManager, width);
             eyes = new Eyes(contentManager);
             mouth = new Mouth(contentManager);
 

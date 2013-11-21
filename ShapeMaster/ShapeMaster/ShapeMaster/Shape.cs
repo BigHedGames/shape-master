@@ -20,7 +20,8 @@ namespace ShapeMaster
         const int BASE_WIDTH = 128;
 
         // animation update time (in ms)
-        const int UPDATE_TIME = 100;
+        const int MOVEMENT_UPDATE_TIME = 100;
+        const int SHIFTING_UPDATE_TIME = 70;
 
         #endregion
 
@@ -37,12 +38,16 @@ namespace ShapeMaster
         Texture2D shapeTriangle;
 
         // Declare variable to hold shape status
+        ShapeStatus charShapeStatusHold;
         ShapeStatus charShapeStatus;
+        bool runShiftingAnimation = false;
 
         // class timer and animation support
-        int elapsedTime;
+        int movementTimer;
+        int shiftingTimer;
         int iteration = 0;
         int maxIterations;
+        readonly int normalWidth;
 
         #endregion
 
@@ -52,13 +57,17 @@ namespace ShapeMaster
         /// Shape constructor.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        public Shape(ContentManager contentManager)
+        public Shape(ContentManager contentManager, int spriteWidth)
         {
             // load sprites
             LoadContent(contentManager);
 
             // create the source rectangle for the sprite strip
             sourceRectangle = new Rectangle(0, 0, BASE_WIDTH, BASE_WIDTH);
+
+            // set the stable size of the draw rectangle 
+            // (so that we can shrink and re-grow during a shape-shift)
+            normalWidth = spriteWidth;
         }
 
         #endregion
@@ -100,35 +109,17 @@ namespace ShapeMaster
         /// <param name="shapeStatus">The shape to draw.</param>
         public void Update(Rectangle drawRec, ShapeStatus shapeStatus, MovementStatus movementStatus, GameTime gameTime)
         {
-            // updating some fields
+            // updating some drawRectangle position
             drawRectangle = drawRec;
-            charShapeStatus = shapeStatus;
-            
-            // Animation
-            elapsedTime += gameTime.ElapsedGameTime.Milliseconds;
-            if (elapsedTime > UPDATE_TIME)
+            charShapeStatusHold = shapeStatus;
+            if (!runShiftingAnimation && charShapeStatusHold != charShapeStatus)
             {
-                // reset the timer
-                elapsedTime = 0;
-
-                // increment the frame
-                iteration++;
-                if (iteration >= maxIterations)
-                {
-                    iteration = 0;
-                }
-
+                runShiftingAnimation = true;
+                shiftingTimer = 0;
             }
 
-            // check the movement state and update source rectangle
-            if (movementStatus == MovementStatus.Stationary)
-            {
-                sourceRectangle.X = 0;
-            }
-            else
-            {
-                sourceRectangle.X = iteration * BASE_WIDTH;
-            }
+            // run animations
+            Animate(movementStatus, gameTime);
         }
 
         #endregion
@@ -156,6 +147,82 @@ namespace ShapeMaster
                 shapeTriangle.Width != shapeCircle.Width)
             {
                 throw new Exception("The sprite strip image widths are different in the Shape class.");
+            }
+        }
+
+        /// <summary>
+        /// Animate the shape (wiggle when moving, shape shift animation).
+        /// </summary>
+        /// <param name="movementStatus">The direction the shape is moving.</param>
+        /// <param name="gameTime">For the ellapsed game time.</param>
+        private void Animate(MovementStatus movementStatus, GameTime gameTime)
+        {
+            // Movement Animation
+            movementTimer += gameTime.ElapsedGameTime.Milliseconds;
+            if (movementTimer > MOVEMENT_UPDATE_TIME)
+            {
+                // reset the timer
+                movementTimer = 0;
+
+                // increment the frame
+                iteration++;
+                if (iteration >= maxIterations)
+                {
+                    iteration = 0;
+                }
+
+            }
+
+            // check the movement state and update source rectangle
+            if (movementStatus == MovementStatus.Stationary)
+            {
+                sourceRectangle.X = 0;
+            }
+            else
+            {
+                sourceRectangle.X = iteration * BASE_WIDTH;
+            }
+
+            // Check if a shape shift should occurr or if one is in progress.
+            if (runShiftingAnimation)
+            {
+                // update the gametime
+                shiftingTimer += gameTime.ElapsedGameTime.Milliseconds;
+
+                // if the actual shape status is different than the hold, shrink
+                if (charShapeStatus != charShapeStatusHold)
+                {
+                    int newWidth = (int)((1 - (double)shiftingTimer / (double)SHIFTING_UPDATE_TIME) * normalWidth);
+
+                    if (newWidth < 0)
+                    {
+                        newWidth = 0;
+                        charShapeStatus = charShapeStatusHold;
+                        shiftingTimer = 0;
+                    }
+
+                    int shift = (int)((float)(drawRectangle.Width - newWidth) / 2.0);
+                    drawRectangle.Width = newWidth;
+                    drawRectangle.Height = newWidth;
+                    drawRectangle.X += shift;
+                    drawRectangle.Y += shift;
+                }
+                else
+                {
+                    int newWidth = (int)((double)shiftingTimer / (double)SHIFTING_UPDATE_TIME * normalWidth);
+
+                    if (newWidth > normalWidth)
+                    {
+                        newWidth = normalWidth;
+                        runShiftingAnimation = false;
+                    }
+
+                    int shift = (int)((float)(newWidth - drawRectangle.Width) / 2.0);
+                    drawRectangle.Width = newWidth;
+                    drawRectangle.Height = newWidth;
+                    drawRectangle.X -= shift;
+                    drawRectangle.Y -= shift;
+                }
             }
         }
 
