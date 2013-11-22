@@ -40,6 +40,9 @@ namespace ShapeMaster
         int iteration = 0;
         int maxIterations;
 
+        // declare sprite type object
+        SpriteType currentSpriteType;
+
         #endregion
 
         #region Constructor
@@ -48,7 +51,7 @@ namespace ShapeMaster
         /// Shape constructor.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        public Shape(ContentManager contentManager, int spriteWidth)
+        public Shape(ContentManager contentManager, SpriteType spriteType, int spriteWidth)
             : base(contentManager, spriteWidth)
         {
             // load sprites
@@ -56,6 +59,9 @@ namespace ShapeMaster
 
             // create the source rectangle for the sprite strip
             sourceRectangle = new Rectangle(0, 0, BASE_WIDTH, BASE_WIDTH);
+
+            // set sprite type
+            currentSpriteType = spriteType;
         }
 
         #endregion
@@ -63,30 +69,46 @@ namespace ShapeMaster
         #region Public Methods
 
         /// <summary>
-        /// Draw the Mouth.
+        /// Draw the shape.
         /// </summary>
         /// <param name="spriteBatch">The sprite batch.</param>
         public void Draw(SpriteBatch spriteBatch)
         {
+            // set the color
+            Color color = Color.White;
+            switch (currentSpriteType)
+            {
+                case (SpriteType.CHARly):
+                    color = Color.Green;
+                    break;
+                case (SpriteType.Mad):
+                    color = Color.Red;
+                    break;
+                case (SpriteType.Saved):
+                    color = Color.Blue;
+                    break;
+            }
+
+
             // Shapeshifting draw logic
             if (charShapeStatus == ShapeStatus.Circle)
             {
-                spriteBatch.Draw(shapeCircle, drawRectangle, sourceRectangle, Color.Green);
+                spriteBatch.Draw(shapeCircle, drawRectangle, sourceRectangle, color);
             }
 
             if (charShapeStatus == ShapeStatus.Square)
             {
-                spriteBatch.Draw(shapeSquare, drawRectangle, sourceRectangle, Color.Green);
+                spriteBatch.Draw(shapeSquare, drawRectangle, sourceRectangle, color);
             }
 
             if (charShapeStatus == ShapeStatus.Star)
             {
-                spriteBatch.Draw(shapeStar, drawRectangle, sourceRectangle, Color.Green);
+                spriteBatch.Draw(shapeStar, drawRectangle, sourceRectangle, color);
             }
 
             if (charShapeStatus == ShapeStatus.Triangle)
             {
-                spriteBatch.Draw(shapeTriangle, drawRectangle, sourceRectangle, Color.Green);
+                spriteBatch.Draw(shapeTriangle, drawRectangle, sourceRectangle, color);
             }
         }
 

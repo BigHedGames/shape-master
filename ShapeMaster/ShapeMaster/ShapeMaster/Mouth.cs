@@ -29,6 +29,9 @@ namespace ShapeMaster
         // Declare variables to hold mouth art
         Texture2D mouth;
 
+        // declare sprite type object
+        SpriteType currentSpriteType;
+
         #endregion
 
         #region Constructor
@@ -37,9 +40,12 @@ namespace ShapeMaster
         /// Mouth constructor.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        public Mouth(ContentManager contentManager, int spriteWidth)
+        public Mouth(ContentManager contentManager, SpriteType spriteType, int spriteWidth)
             : base(contentManager, spriteWidth)
         {
+            // set sprite type
+            currentSpriteType = spriteType;
+
             // load the sprite image
             LoadContent(contentManager);
 
@@ -88,13 +94,21 @@ namespace ShapeMaster
         /// <param name="gameTime">The game time used to update the animation.</param>
         private void Animate(MovementStatus movementStatus, GameTime gameTime)
         {
-            if (movementStatus != MovementStatus.Stationary)
+            if (currentSpriteType == SpriteType.CHARly)
             {
-                sourceRectangle.X = 0;
+                if (movementStatus != MovementStatus.Stationary)
+                {
+                    sourceRectangle.X = 0;
+                }
+                else
+                {
+                    sourceRectangle.X = BASE_WIDTH;
+                }
             }
+
             else
             {
-                sourceRectangle.X = BASE_WIDTH;
+                sourceRectangle.X = 0;
             }
         }
 
@@ -104,7 +118,15 @@ namespace ShapeMaster
         /// <param name="contentManager">The content manager.</param>
         private void LoadContent(ContentManager contentManager)
         {
-            mouth = contentManager.Load<Texture2D>("CHAR_MOUTHZ");
+            if (currentSpriteType == SpriteType.CHARly)
+            {
+                mouth = contentManager.Load<Texture2D>("CHAR_MOUTHZ");
+            }
+
+            else
+            {
+                mouth = contentManager.Load<Texture2D>("MAD_MOUTH");
+            }
         }
 
         #endregion

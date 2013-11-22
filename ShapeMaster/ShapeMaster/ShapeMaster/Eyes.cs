@@ -47,6 +47,9 @@ namespace ShapeMaster
         int iteration = 0;
         int maxIterations;
 
+        // declare variable to hold sprite type
+        SpriteType currentSprite;
+
         #endregion
 
         #region Constructor
@@ -55,9 +58,13 @@ namespace ShapeMaster
         /// Eyes constructor.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        public Eyes(ContentManager contentManager, int spriteWidth)
-            : base(contentManager, spriteWidth)
+        public Eyes(ContentManager contentManager, SpriteType spriteType, int spriteWidth)
+            : base(contentManager,spriteWidth)
         {
+
+            // set sprite type
+            currentSprite = spriteType;
+
             // load sprite content
             LoadContent(contentManager);
 
@@ -201,12 +208,24 @@ namespace ShapeMaster
         /// <param name="contentManager">The content manager.</param>
         private void LoadContent(ContentManager contentManager)
         {
-            // load the sprites
-            northEyes = contentManager.Load<Texture2D>("CHAR_EYEZNORTH");
-            northEastEyes = contentManager.Load<Texture2D>("CHAR_EYEZNE");
-            eastEyes = contentManager.Load<Texture2D>("CHAR_EYEZEAST");
-            southEastEyes = contentManager.Load<Texture2D>("CHAR_EYEZSE");
-            southEyes = contentManager.Load<Texture2D>("CHAR_EYEZSOUTH");
+            if (currentSprite == SpriteType.CHARly)
+            {
+                // load the sprites
+                northEyes = contentManager.Load<Texture2D>("CHAR_EYEZNORTH");
+                northEastEyes = contentManager.Load<Texture2D>("CHAR_EYEZNE");
+                eastEyes = contentManager.Load<Texture2D>("CHAR_EYEZEAST");
+                southEastEyes = contentManager.Load<Texture2D>("CHAR_EYEZSE");
+                southEyes = contentManager.Load<Texture2D>("CHAR_EYEZSOUTH");
+            }
+
+            else
+            {
+                northEyes = contentManager.Load<Texture2D>("MAD_EYEZ");
+                northEastEyes = contentManager.Load<Texture2D>("MAD_EYEZ");
+                eastEyes = contentManager.Load<Texture2D>("MAD_EYEZ");
+                southEastEyes = contentManager.Load<Texture2D>("MAD_EYEZ");
+                southEyes = contentManager.Load<Texture2D>("MAD_EYEZ");
+            }
 
             // set the maximum iterations before starting over at 0 in the sprite strip
             maxIterations = northEyes.Width / BASE_WIDTH;

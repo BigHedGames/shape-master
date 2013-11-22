@@ -21,4 +21,12 @@ namespace ShapeMaster
         West, 
         NorthWest
     };
+
+    // declare enumeration that stores 3 types of sprites
+    public enum SpriteType
+    {
+        CHARly,
+        Mad,
+        Saved
+    };
 }

@@ -36,7 +36,13 @@ namespace ShapeMaster
         SpriteBatch spriteBatch;
 
         // main character sprite support
-        Character player;
+        MainCharacter player;
+
+        // np characters support
+        NPCharacter npChar;
+
+        // random number generation support
+        Random randNum = new Random();
 
         #endregion
 
@@ -51,7 +57,7 @@ namespace ShapeMaster
             Content.RootDirectory = "Content";
 
             // make mouse visible
-            IsMouseVisible = true;
+            //IsMouseVisible = true;
 
             // set resolution to defined constants
             graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
@@ -84,8 +90,10 @@ namespace ShapeMaster
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load characters
-            player = new Character(Content, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
+            player = new MainCharacter(Content, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
                 CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT);
+            npChar = new NPCharacter(Content, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
+                CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, randNum);
 
         }
         #endregion
@@ -118,6 +126,7 @@ namespace ShapeMaster
 
             // update the player
             player.Update(keyboardState, gameTime);
+            npChar.Update(gameTime);
 
             // update the game time.
             base.Update(gameTime);
@@ -137,8 +146,9 @@ namespace ShapeMaster
             // begin the sprite batch
             spriteBatch.Begin();
 
-            // draw the player
+            // draw the sprites
             player.Draw(spriteBatch);
+            npChar.Draw(spriteBatch);
 
             // end the sprite batch
             spriteBatch.End();
