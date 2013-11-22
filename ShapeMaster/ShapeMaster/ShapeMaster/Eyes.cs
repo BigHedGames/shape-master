@@ -63,6 +63,9 @@ namespace ShapeMaster
 
             // define the animation strip rectangle
             sourceRectangle = new Rectangle(0, 0, BASE_WIDTH, BASE_WIDTH);
+
+            // needed for the flip effect
+            spriteOrigin = new Vector2(0, 0);
         }
 
         #endregion
