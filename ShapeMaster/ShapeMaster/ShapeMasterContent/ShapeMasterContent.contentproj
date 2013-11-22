@@ -30,98 +30,6 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Background.png">
-      <Name>Background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="CHAR_CIRCLE.png">
-      <Name>CHAR_CIRCLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="CHAR_SQUARE.png">
-      <Name>CHAR_SQUARE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="CHAR_STAR.png">
-      <Name>CHAR_STAR</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="CHAR_TRIANGLE.png">
-      <Name>CHAR_TRIANGLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="ENEMY_CIRCLE.png">
-      <Name>ENEMY_CIRCLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="ENEMY_SQUARE.png">
-      <Name>ENEMY_SQUARE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="ENEMY_STAR.png">
-      <Name>ENEMY_STAR</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="ENEMY_TRIANGLE.png">
-      <Name>ENEMY_TRIANGLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="GAMEOVER.png">
-      <Name>GAMEOVER</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="SAVE_CIRCLE.png">
-      <Name>SAVE_CIRCLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="SAVE_SQUARE.png">
-      <Name>SAVE_SQUARE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="SAVE_STAR.png">
-      <Name>SAVE_STAR</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="SAVE_TRIANGLE.png">
-      <Name>SAVE_TRIANGLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="SCORE.png">
-      <Name>SCORE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="CHAR_EYEZ.png">
-      <Name>CHAR_EYEZ</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="CHAR_MOUTH.png">
-      <Name>CHAR_MOUTH</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="CIRCLE.png">
-      <Name>CIRCLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="MAD_EYEZ.png">
       <Name>MAD_EYEZ</Name>
       <Importer>TextureImporter</Importer>
@@ -139,21 +47,6 @@
     </Compile>
     <Compile Include="SAVED_MOUTH.png">
       <Name>SAVED_MOUTH</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="SQUARE.png">
-      <Name>SQUARE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="STAR.png">
-      <Name>STAR</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="TRIANGLE.png">
-      <Name>TRIANGLE</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -205,6 +98,13 @@
     </Compile>
     <Compile Include="EYEZSOUTH.png">
       <Name>EYEZSOUTH</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CHAR_MOUTHZ.png">
+      <Name>CHAR_MOUTHZ</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

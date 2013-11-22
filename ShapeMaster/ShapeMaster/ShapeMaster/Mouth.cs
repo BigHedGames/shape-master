@@ -14,12 +14,20 @@ namespace ShapeMaster
 {
     class Mouth : SpriteBase
     {
+        #region Constants
+
+        // base width for each image in the sprite strip
+        const int BASE_WIDTH = 128;
+
+        #endregion
+
         #region Fields
 
+        // Animation rectangle
+        Rectangle sourceRectangle;
+
         // Declare variables to hold mouth art
-        Texture2D charMouth;
-        Texture2D madMouth;
-        Texture2D saveMouth;
+        Texture2D mouth;
 
         #endregion
 
@@ -32,7 +40,11 @@ namespace ShapeMaster
         public Mouth(ContentManager contentManager, int spriteWidth)
             : base(contentManager, spriteWidth)
         {
+            // load the sprite image
             LoadContent(contentManager);
+
+            // define the animation strip rectangle
+            sourceRectangle = new Rectangle(0, 0, BASE_WIDTH, BASE_WIDTH);
         }
 
         #endregion
@@ -45,7 +57,7 @@ namespace ShapeMaster
         /// <param name="spriteBatch">The sprite batch.</param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(charMouth, drawRectangle, Color.White);
+            spriteBatch.Draw(mouth, drawRectangle, sourceRectangle, Color.White);
         }
 
         /// <summary>
@@ -62,7 +74,7 @@ namespace ShapeMaster
             base.Animate(gameTime);
 
             // run animations
-            //Animate(movementStatus, gameTime);
+            Animate(movementStatus, gameTime);
         }
 
         #endregion
@@ -70,14 +82,29 @@ namespace ShapeMaster
         #region Private Methods
 
         /// <summary>
+        /// Mouth animation.
+        /// </summary>
+        /// <param name="movementStatus">Says whether or not this character is moving.</param>
+        /// <param name="gameTime">The game time used to update the animation.</param>
+        private void Animate(MovementStatus movementStatus, GameTime gameTime)
+        {
+            if (movementStatus != MovementStatus.Stationary)
+            {
+                sourceRectangle.X = 0;
+            }
+            else
+            {
+                sourceRectangle.X = BASE_WIDTH;
+            }
+        }
+
+        /// <summary>
         /// Method to load the content into the content manager.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
         private void LoadContent(ContentManager contentManager)
         {
-            charMouth = contentManager.Load<Texture2D>("CHAR_MOUTH");
-            madMouth = contentManager.Load<Texture2D>("MAD_MOUTH");
-            saveMouth = contentManager.Load<Texture2D>("SAVED_MOUTH");
+            mouth = contentManager.Load<Texture2D>("CHAR_MOUTHZ");
         }
 
         #endregion
