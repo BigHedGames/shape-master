@@ -2,175 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Background.png</Source>
-      <Name>Background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\Background.xnb</Output>
-      <Time>2012-07-16T01:18:50-07:00</Time>
-    </Item>
-    <Item>
-      <Source>CHAR_CIRCLE.png</Source>
-      <Name>CHAR_CIRCLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_CIRCLE.xnb</Output>
-      <Time>2013-11-17T16:20:21.340887-08:00</Time>
-    </Item>
-    <Item>
-      <Source>CHAR_SQUARE.png</Source>
-      <Name>CHAR_SQUARE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_SQUARE.xnb</Output>
-      <Time>2013-11-17T16:23:13.2649958-08:00</Time>
-    </Item>
-    <Item>
-      <Source>CHAR_STAR.png</Source>
-      <Name>CHAR_STAR</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_STAR.xnb</Output>
-      <Time>2013-11-17T16:23:13.2649958-08:00</Time>
-    </Item>
-    <Item>
-      <Source>CHAR_TRIANGLE.png</Source>
-      <Name>CHAR_TRIANGLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_TRIANGLE.xnb</Output>
-      <Time>2013-11-17T16:23:13.2806196-08:00</Time>
-    </Item>
-    <Item>
-      <Source>ENEMY_CIRCLE.png</Source>
-      <Name>ENEMY_CIRCLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\ENEMY_CIRCLE.xnb</Output>
-      <Time>2013-11-17T16:23:13.2806196-08:00</Time>
-    </Item>
-    <Item>
-      <Source>ENEMY_SQUARE.png</Source>
-      <Name>ENEMY_SQUARE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\ENEMY_SQUARE.xnb</Output>
-      <Time>2013-11-17T16:23:13.2806196-08:00</Time>
-    </Item>
-    <Item>
-      <Source>ENEMY_STAR.png</Source>
-      <Name>ENEMY_STAR</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\ENEMY_STAR.xnb</Output>
-      <Time>2013-11-17T16:23:13.2806196-08:00</Time>
-    </Item>
-    <Item>
-      <Source>ENEMY_TRIANGLE.png</Source>
-      <Name>ENEMY_TRIANGLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\ENEMY_TRIANGLE.xnb</Output>
-      <Time>2013-11-17T16:23:13.2806196-08:00</Time>
-    </Item>
-    <Item>
-      <Source>GAMEOVER.png</Source>
-      <Name>GAMEOVER</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\GAMEOVER.xnb</Output>
-      <Time>2012-07-15T17:10:32-07:00</Time>
-    </Item>
-    <Item>
-      <Source>SAVE_CIRCLE.png</Source>
-      <Name>SAVE_CIRCLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SAVE_CIRCLE.xnb</Output>
-      <Time>2013-11-17T16:23:13.2806196-08:00</Time>
-    </Item>
-    <Item>
-      <Source>SAVE_SQUARE.png</Source>
-      <Name>SAVE_SQUARE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SAVE_SQUARE.xnb</Output>
-      <Time>2013-11-17T16:23:13.2806196-08:00</Time>
-    </Item>
-    <Item>
-      <Source>SAVE_STAR.png</Source>
-      <Name>SAVE_STAR</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SAVE_STAR.xnb</Output>
-      <Time>2013-11-17T16:23:13.2806196-08:00</Time>
-    </Item>
-    <Item>
-      <Source>SAVE_TRIANGLE.png</Source>
-      <Name>SAVE_TRIANGLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SAVE_TRIANGLE.xnb</Output>
-      <Time>2013-11-17T16:23:13.2806196-08:00</Time>
-    </Item>
-    <Item>
-      <Source>SCORE.png</Source>
-      <Name>SCORE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SCORE.xnb</Output>
-      <Time>2012-07-15T15:03:30-07:00</Time>
-    </Item>
-    <Item>
-      <Source>CHAR_EYEZ.png</Source>
-      <Name>CHAR_EYEZ</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_EYEZ.xnb</Output>
-      <Time>2013-11-17T17:41:05.5174006-08:00</Time>
-    </Item>
-    <Item>
-      <Source>CHAR_MOUTH.png</Source>
-      <Name>CHAR_MOUTH</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_MOUTH.xnb</Output>
-      <Time>2013-11-17T17:41:05.5174006-08:00</Time>
-    </Item>
-    <Item>
-      <Source>CIRCLE.png</Source>
-      <Name>CIRCLE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CIRCLE.xnb</Output>
-      <Time>2013-11-17T17:41:05.5174006-08:00</Time>
-    </Item>
-    <Item>
       <Source>MAD_EYEZ.png</Source>
       <Name>MAD_EYEZ</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\MAD_EYEZ.xnb</Output>
-      <Time>2013-11-17T17:41:05.5174006-08:00</Time>
+      <Time>2013-11-21T18:33:42.8388753-08:00</Time>
     </Item>
     <Item>
       <Source>MAD_MOUTH.png</Source>
@@ -179,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\MAD_MOUTH.xnb</Output>
-      <Time>2013-11-17T17:41:05.5174006-08:00</Time>
+      <Time>2013-11-21T18:33:42.8388753-08:00</Time>
     </Item>
     <Item>
       <Source>SAVED_EYEZ.png</Source>
@@ -188,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SAVED_EYEZ.xnb</Output>
-      <Time>2013-11-17T17:41:05.5174006-08:00</Time>
+      <Time>2013-11-21T18:33:42.8388753-08:00</Time>
     </Item>
     <Item>
       <Source>SAVED_MOUTH.png</Source>
@@ -197,34 +35,97 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SAVED_MOUTH.xnb</Output>
-      <Time>2013-11-17T17:41:05.5174006-08:00</Time>
+      <Time>2013-11-21T18:33:42.8388753-08:00</Time>
     </Item>
     <Item>
-      <Source>SQUARE.png</Source>
-      <Name>SQUARE</Name>
+      <Source>CIRCLEZ.png</Source>
+      <Name>CIRCLEZ</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SQUARE.xnb</Output>
-      <Time>2013-11-17T17:41:05.5174006-08:00</Time>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CIRCLEZ.xnb</Output>
+      <Time>2013-11-21T18:33:42.8232511-08:00</Time>
     </Item>
     <Item>
-      <Source>STAR.png</Source>
-      <Name>STAR</Name>
+      <Source>SQUAREZ.png</Source>
+      <Name>SQUAREZ</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\STAR.xnb</Output>
-      <Time>2013-11-17T17:41:05.5174006-08:00</Time>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\SQUAREZ.xnb</Output>
+      <Time>2013-11-21T18:33:42.8388753-08:00</Time>
     </Item>
     <Item>
-      <Source>TRIANGLE.png</Source>
-      <Name>TRIANGLE</Name>
+      <Source>STARZ.png</Source>
+      <Name>STARZ</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\TRIANGLE.xnb</Output>
-      <Time>2013-11-17T17:41:05.5174006-08:00</Time>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\STARZ.xnb</Output>
+      <Time>2013-11-21T18:33:42.8388753-08:00</Time>
+    </Item>
+    <Item>
+      <Source>TRIANGLEZ.png</Source>
+      <Name>TRIANGLEZ</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\TRIANGLEZ.xnb</Output>
+      <Time>2013-11-21T18:33:42.9013801-08:00</Time>
+    </Item>
+    <Item>
+      <Source>CHAR_MOUTHZ.png</Source>
+      <Name>CHAR_MOUTHZ</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_MOUTHZ.xnb</Output>
+      <Time>2013-11-21T18:33:42.8232511-08:00</Time>
+    </Item>
+    <Item>
+      <Source>CHAR_EYEZEAST.png</Source>
+      <Name>CHAR_EYEZEAST</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_EYEZEAST.xnb</Output>
+      <Time>2013-11-21T19:19:31.1119934-08:00</Time>
+    </Item>
+    <Item>
+      <Source>CHAR_EYEZNE.png</Source>
+      <Name>CHAR_EYEZNE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_EYEZNE.xnb</Output>
+      <Time>2013-11-21T19:19:31.1276187-08:00</Time>
+    </Item>
+    <Item>
+      <Source>CHAR_EYEZNORTH.png</Source>
+      <Name>CHAR_EYEZNORTH</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_EYEZNORTH.xnb</Output>
+      <Time>2013-11-21T19:19:31.1276187-08:00</Time>
+    </Item>
+    <Item>
+      <Source>CHAR_EYEZSE.png</Source>
+      <Name>CHAR_EYEZSE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_EYEZSE.xnb</Output>
+      <Time>2013-11-21T19:19:31.1276187-08:00</Time>
+    </Item>
+    <Item>
+      <Source>CHAR_EYEZSOUTH.png</Source>
+      <Name>CHAR_EYEZSOUTH</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_EYEZSOUTH.xnb</Output>
+      <Time>2013-11-21T19:19:31.1276187-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

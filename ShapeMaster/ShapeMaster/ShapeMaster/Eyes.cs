@@ -202,11 +202,11 @@ namespace ShapeMaster
         private void LoadContent(ContentManager contentManager)
         {
             // load the sprites
-            northEyes = contentManager.Load<Texture2D>("EYEZNORTH");
-            northEastEyes = contentManager.Load<Texture2D>("EYEZNE");
-            eastEyes = contentManager.Load<Texture2D>("EYEZEAST");
-            southEastEyes = contentManager.Load<Texture2D>("EYEZSE");
-            southEyes = contentManager.Load<Texture2D>("EYEZSOUTH");
+            northEyes = contentManager.Load<Texture2D>("CHAR_EYEZNORTH");
+            northEastEyes = contentManager.Load<Texture2D>("CHAR_EYEZNE");
+            eastEyes = contentManager.Load<Texture2D>("CHAR_EYEZEAST");
+            southEastEyes = contentManager.Load<Texture2D>("CHAR_EYEZSE");
+            southEyes = contentManager.Load<Texture2D>("CHAR_EYEZSOUTH");
 
             // set the maximum iterations before starting over at 0 in the sprite strip
             maxIterations = northEyes.Width / BASE_WIDTH;

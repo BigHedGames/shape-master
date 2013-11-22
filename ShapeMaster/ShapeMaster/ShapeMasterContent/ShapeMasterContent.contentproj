@@ -76,35 +76,35 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EYEZEAST.png">
-      <Name>EYEZEAST</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="EYEZNE.png">
-      <Name>EYEZNE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="EYEZNORTH.png">
-      <Name>EYEZNORTH</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="EYEZSE.png">
-      <Name>EYEZSE</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="EYEZSOUTH.png">
-      <Name>EYEZSOUTH</Name>
+    <Compile Include="CHAR_MOUTHZ.png">
+      <Name>CHAR_MOUTHZ</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CHAR_MOUTHZ.png">
-      <Name>CHAR_MOUTHZ</Name>
+    <Compile Include="CHAR_EYEZEAST.png">
+      <Name>CHAR_EYEZEAST</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="CHAR_EYEZNE.png">
+      <Name>CHAR_EYEZNE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="CHAR_EYEZNORTH.png">
+      <Name>CHAR_EYEZNORTH</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="CHAR_EYEZSE.png">
+      <Name>CHAR_EYEZSE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="CHAR_EYEZSOUTH.png">
+      <Name>CHAR_EYEZSOUTH</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
