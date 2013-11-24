@@ -40,9 +40,6 @@ namespace ShapeMaster
         int iteration = 0;
         int maxIterations;
 
-        // declare sprite type object
-        SpriteType currentSpriteType;
-
         #endregion
 
         #region Constructor
@@ -52,16 +49,13 @@ namespace ShapeMaster
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
         public Shape(ContentManager contentManager, SpriteType spriteType, int spriteWidth)
-            : base(contentManager, spriteWidth)
+            : base(contentManager, spriteType, spriteWidth)
         {
             // load sprites
             LoadContent(contentManager);
 
             // create the source rectangle for the sprite strip
             sourceRectangle = new Rectangle(0, 0, BASE_WIDTH, BASE_WIDTH);
-
-            // set sprite type
-            currentSpriteType = spriteType;
         }
 
         #endregion
@@ -76,7 +70,7 @@ namespace ShapeMaster
         {
             // set the color
             Color color = Color.White;
-            switch (currentSpriteType)
+            switch (CurrentSpriteType)
             {
                 case (SpriteType.CHARly):
                     color = Color.Green;
@@ -88,7 +82,6 @@ namespace ShapeMaster
                     color = Color.Blue;
                     break;
             }
-
 
             // Shapeshifting draw logic
             if (charShapeStatus == ShapeStatus.Circle)

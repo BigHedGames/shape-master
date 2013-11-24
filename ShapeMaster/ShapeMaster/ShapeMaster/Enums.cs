@@ -27,6 +27,7 @@ namespace ShapeMaster
     {
         CHARly,
         Mad,
-        Saved
+        Saved,
+        Crazy
     };
 }

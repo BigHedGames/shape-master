@@ -67,14 +67,43 @@ namespace ShapeMaster
             velocityVector = new Vector2(0, 0);
             while (velocityVector.X == 0 && velocityVector.Y == 0)
             {
-                velocityVector.X = randNum.Next(-INITIAL_VELOCITY, INITIAL_VELOCITY);
-                velocityVector.Y = randNum.Next(-INITIAL_VELOCITY, INITIAL_VELOCITY);
+                velocityVector.X = (float)(2.0 * INITIAL_VELOCITY * randNum.NextDouble() - INITIAL_VELOCITY);
+                velocityVector.Y = (float)(2.0 * INITIAL_VELOCITY * randNum.NextDouble() - INITIAL_VELOCITY);
             }
+
+            Console.WriteLine("Velocity: " + velocityVector.X + " " + velocityVector.Y);
         }
 
         #endregion
 
         #region Public Methods
+
+        /// <summary>
+        /// Handles sprite-to-sprite interaction (collision detection, sprite types, etc.).
+        /// </summary>
+        /// <param name="character">The character to check against.</param>
+        public void CheckSpriteInteraction(Character character)
+        {
+            // if the sprite we're checking against is CHARly
+            if (character.CurrentSpriteType == SpriteType.CHARly)
+            {
+                // if this sprite is mad or saved
+                if (this.CurrentSpriteType == SpriteType.Mad || this.CurrentSpriteType == SpriteType.Saved)
+                {
+                    // set the sprite type based on the character shape
+                    if (character.CharShapeStatus == this.CharShapeStatus)
+                    {
+                        this.CurrentSpriteType = SpriteType.Saved;
+                    }
+                    else
+                    {
+                        this.CurrentSpriteType = SpriteType.Mad;
+                    }
+                }
+            }
+        }
+
+
         /// <summary>
         /// Update the sprites.
         /// </summary>
@@ -94,34 +123,63 @@ namespace ShapeMaster
         #endregion
 
         #region Private Methods
-            /// <summary>
+
+        /// <summary>
         /// Move the sprite based on keyboard input.
         /// </summary>
         /// <param name="keyboardState">The keyboard state which provides the keyboard input.</param>
         private void Move()
         {
             // make npc move
-            positionRectangle.X += (int)velocityVector.X;
-            positionRectangle.Y += (int)velocityVector.Y;
+            int velocityVectorX = ProcessVelocity(velocityVector.X);
+            int velocityVectorY = ProcessVelocity(velocityVector.Y);
+            Console.WriteLine("Velocity: " + velocityVector.X + ", " + velocityVector.Y + "(" 
+                + velocityVectorX + ", " + velocityVectorY + ")");
+            positionRectangle.X += velocityVectorX;
+            positionRectangle.Y += velocityVectorY;
 
             // If the sprite has moved passed the boundaries, put it back.
-            if (positionRectangle.X < boundaryLeft)
+            if (positionRectangle.X < boundaryLeft && velocityVector.X < 0)
             {
                 velocityVector.X *= -1;
             }
-            if (positionRectangle.Y < boundaryTop)
+            if (positionRectangle.Y < boundaryTop && velocityVector.Y < 0)
             {
                 velocityVector.Y *= -1;
             }
-            if (positionRectangle.X + positionRectangle.Width > boundaryRight)
+            if (positionRectangle.X + positionRectangle.Width > boundaryRight && velocityVector.X > 0)
             {
                 velocityVector.X *= -1;
             }
-            if (positionRectangle.Y + positionRectangle.Height > boundaryBottom)
+            if (positionRectangle.Y + positionRectangle.Height > boundaryBottom && velocityVector.Y > 0)
             {
                 velocityVector.Y *= -1;
             }
         }
+
+        /// <summary>
+        /// Process the integer velocity to better approach a float using random numbers.
+        /// </summary>
+        /// <param name="number">The floating point number.</param>
+        /// <returns></returns>
+        private int ProcessVelocity(float number)
+        {
+            // first round down (floor function)
+            int velocityToReturn = (int)number;
+
+            // then draw a random number between 0 and 1. If the number is greater than the decimal
+            // value, add 0 to the velocity. Else, add 1.
+            if (velocityToReturn < 0)
+            {
+                velocityToReturn -= (randNum.NextDouble() < (-number % velocityToReturn) ? 1 : 0);
+            }
+            else
+            {
+                velocityToReturn += (randNum.NextDouble() < number % velocityToReturn ? 1 : 0);
+            }
+            return velocityToReturn;
+        }
+
         #endregion
     }
 }
