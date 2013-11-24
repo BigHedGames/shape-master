@@ -133,7 +133,7 @@ namespace ShapeMaster
             // make npc move
             int velocityVectorX = ProcessVelocity(velocityVector.X);
             int velocityVectorY = ProcessVelocity(velocityVector.Y);
-            Console.WriteLine("Velocity: " + velocityVector.X + ", " + velocityVector.Y + "(" 
+            Console.WriteLine("Velocity: " + velocityVector.X + ", " + velocityVector.Y + "("
                 + velocityVectorX + ", " + velocityVectorY + ")");
             positionRectangle.X += velocityVectorX;
             positionRectangle.Y += velocityVectorY;
@@ -169,13 +169,19 @@ namespace ShapeMaster
 
             // then draw a random number between 0 and 1. If the number is greater than the decimal
             // value, add 0 to the velocity. Else, add 1.
-            if (velocityToReturn < 0)
+            if (number < 0)
             {
-                velocityToReturn -= (randNum.NextDouble() < (-number % velocityToReturn) ? 1 : 0);
+                double remainder = Math.Abs(number) - Math.Abs(velocityToReturn);
+                if (Math.Abs(number) < 1) remainder = Math.Abs(number);
+                velocityToReturn -= (randNum.NextDouble() < remainder ? 1 : 0);
+                Console.WriteLine(velocityToReturn + " " + remainder);
             }
             else
             {
-                velocityToReturn += (randNum.NextDouble() < number % velocityToReturn ? 1 : 0);
+                double remainder = number - velocityToReturn;
+                if (number < 1) remainder = number;
+                velocityToReturn += (randNum.NextDouble() < remainder ? 1 : 0);
+                Console.WriteLine(remainder);
             }
             return velocityToReturn;
         }
