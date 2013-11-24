@@ -31,11 +31,9 @@ namespace ShapeMaster
 
         // Declare variables to hold eye art
         Texture2D drawEyes;
-        Texture2D northEyes;
-        Texture2D northEastEyes;
-        Texture2D eastEyes;
-        Texture2D southEastEyes;
-        Texture2D southEyes;
+
+        // hash table holding the various possible eyes
+        Dictionary<string, Texture2D> loadedEyes = new Dictionary<string,Texture2D>();
 
         // For flipping the sprites
         bool isFlipped = false;
@@ -45,10 +43,7 @@ namespace ShapeMaster
         // class timer and animation support
         int movementTimer;
         int iteration = 0;
-        int maxIterations;
-
-        // declare variable to hold sprite type
-        SpriteType currentSprite;
+        Dictionary<string, int> maxIterations = new Dictionary<string,int>();
 
         #endregion
 
@@ -59,12 +54,8 @@ namespace ShapeMaster
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
         public Eyes(ContentManager contentManager, SpriteType spriteType, int spriteWidth)
-            : base(contentManager,spriteWidth)
+            : base(contentManager, spriteType, spriteWidth)
         {
-
-            // set sprite type
-            currentSprite = spriteType;
-
             // load sprite content
             LoadContent(contentManager);
 
@@ -122,7 +113,8 @@ namespace ShapeMaster
             if (movementStatus == MovementStatus.Stationary)
             {
                 // Stationary eyes
-                drawEyes = northEyes;
+                SetPrefix();
+                drawEyes = loadedEyes[currentPrefix + "EYEZNORTH"];
                 sourceRectangle.X = 0;
             }
             else
@@ -139,7 +131,7 @@ namespace ShapeMaster
 
                     // increment the frame
                     iteration++;
-                    if (iteration >= maxIterations)
+                    if (iteration >= maxIterations[currentPrefix])
                     {
                         iteration = 0;
                     }
@@ -164,41 +156,55 @@ namespace ShapeMaster
         /// <param name="movementStatus"></param>
         private void SetSprite(MovementStatus movementStatus)
         {
+            // set the prefix based on type
+            SetPrefix();
+
+            // set the direction for the eyes
+            SetDirection(movementStatus);
+        }
+
+        /// <summary>
+        /// Set the direction the eyes should face.
+        /// </summary>
+        /// <param name="movementStatus">The direction the eyes should point.</param>
+        private void SetDirection(MovementStatus movementStatus)
+        {
+            // direction
             isFlipped = false;
             if (movementStatus == MovementStatus.North)
             {
-                drawEyes = northEyes;
+                drawEyes = loadedEyes[currentPrefix + "EYEZNORTH"];
             }
             if (movementStatus == MovementStatus.NorthEast)
             {
-                drawEyes = northEastEyes;
+                drawEyes = loadedEyes[currentPrefix + "EYEZNE"];
             }
             if (movementStatus == MovementStatus.East)
             {
-                drawEyes = eastEyes;
+                drawEyes = loadedEyes[currentPrefix + "EYEZEAST"];
             }
             if (movementStatus == MovementStatus.SouthEast)
             {
-                drawEyes = southEastEyes;
+                drawEyes = loadedEyes[currentPrefix + "EYEZSE"];
             }
             if (movementStatus == MovementStatus.South)
             {
-                drawEyes = southEyes;
+                drawEyes = loadedEyes[currentPrefix + "EYEZSOUTH"];
             }
             if (movementStatus == MovementStatus.SouthWest)
             {
                 isFlipped = true;
-                drawEyes = southEastEyes;
+                drawEyes = loadedEyes[currentPrefix + "EYEZSE"];
             }
             if (movementStatus == MovementStatus.West)
             {
                 isFlipped = true;
-                drawEyes = eastEyes;
+                drawEyes = loadedEyes[currentPrefix + "EYEZEAST"];
             }
             if (movementStatus == MovementStatus.NorthWest)
             {
                 isFlipped = true;
-                drawEyes = northEastEyes;
+                drawEyes = loadedEyes[currentPrefix + "EYEZNE"];
             }
         }
 
@@ -208,34 +214,40 @@ namespace ShapeMaster
         /// <param name="contentManager">The content manager.</param>
         private void LoadContent(ContentManager contentManager)
         {
-            if (currentSprite == SpriteType.CHARly)
-            {
-                // load the sprites
-                northEyes = contentManager.Load<Texture2D>("CHAR_EYEZNORTH");
-                northEastEyes = contentManager.Load<Texture2D>("CHAR_EYEZNE");
-                eastEyes = contentManager.Load<Texture2D>("CHAR_EYEZEAST");
-                southEastEyes = contentManager.Load<Texture2D>("CHAR_EYEZSE");
-                southEyes = contentManager.Load<Texture2D>("CHAR_EYEZSOUTH");
-            }
+            // load all the possible eyes
+            List<string> directions = new List<string>() { "NORTH", "NE", "EAST", "SE", "SOUTH" };
 
-            else
+            // loop over all prefixes
+            foreach (string prefix in characterPrefixes)
             {
-                northEyes = contentManager.Load<Texture2D>("MAD_EYEZ");
-                northEastEyes = contentManager.Load<Texture2D>("MAD_EYEZ");
-                eastEyes = contentManager.Load<Texture2D>("MAD_EYEZ");
-                southEastEyes = contentManager.Load<Texture2D>("MAD_EYEZ");
-                southEyes = contentManager.Load<Texture2D>("MAD_EYEZ");
-            }
+                // To test if the widths are the same for each string (needed for animations)
+                int widthTest = 0;
 
-            // set the maximum iterations before starting over at 0 in the sprite strip
-            maxIterations = northEyes.Width / BASE_WIDTH;
+                // loop over directions
+                foreach (string dir in directions)
+                {
+                    // set the asset and dictionary strings
+                    string imageStr = prefix + "EYEZ";
+                    string dictionaryStr = imageStr + dir ;
+                    if (prefix.Equals("CHAR_")) imageStr += dir;
 
-            if (northEastEyes.Width != northEyes.Width ||
-                eastEyes.Width != northEyes.Width ||
-                southEastEyes.Width != northEyes.Width ||
-                southEastEyes.Width != northEyes.Width)
-            {
-                throw new Exception("The sprite strip image widths are different in the Eyes class.");
+                    // load the content and insert into the dictionary
+                    loadedEyes[dictionaryStr] = contentManager.Load<Texture2D>(imageStr);
+
+                    // Check that all sprites of the same character type are the same width
+                    if (widthTest > 0)
+                    {
+                        if (loadedEyes[dictionaryStr].Width != widthTest)
+                        {
+                            throw new Exception("The sprite strip image widths are different in the Eyes class.");
+                        }
+                    }
+                    else
+                    {
+                        widthTest = loadedEyes[prefix + "EYEZ" + dir].Width;
+                        maxIterations.Add(prefix, widthTest / BASE_WIDTH);
+                    }
+                }
             }
         }
 

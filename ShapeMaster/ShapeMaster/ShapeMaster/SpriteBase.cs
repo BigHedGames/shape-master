@@ -39,6 +39,20 @@ namespace ShapeMaster
         int shiftingTimer;
         readonly int normalWidth;
 
+        // prefix for asset classes
+        protected string currentPrefix;
+        protected List<string> characterPrefixes = new List<string>() { "CHAR_", "MAD_", "SAVED_" };
+
+        // movement status (i.e. direction)
+        //protected MovementStatus movementStatus;
+
+        #endregion
+
+        #region Properties
+
+        // character type (e.g. CHARly, save, bad, etc.)
+        public SpriteType CurrentSpriteType { get; set; }
+
         #endregion
 
         #region Constructor
@@ -47,8 +61,11 @@ namespace ShapeMaster
         /// Shape constructor.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
-        public SpriteBase(ContentManager contentManager, int spriteWidth)
+        public SpriteBase(ContentManager contentManager, SpriteType spriteType, int spriteWidth)
         {
+            // set the sprite type
+            CurrentSpriteType = spriteType;
+
             // set the stable size of the draw rectangle 
             // (so that we can shrink and re-grow during a shape-shift)
             normalWidth = spriteWidth;
@@ -129,6 +146,26 @@ namespace ShapeMaster
                     drawRectangle.X -= shift;
                     drawRectangle.Y -= shift;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Set the prefix for the sprite and for the dictionary 
+        /// </summary>
+        protected void SetPrefix()
+        {
+            // spriteType
+            if (CurrentSpriteType == SpriteType.CHARly)
+            {
+                currentPrefix = "CHAR_";
+            }
+            if (CurrentSpriteType == SpriteType.Mad)
+            {
+                currentPrefix = "MAD_";
+            }
+            if (CurrentSpriteType == SpriteType.Saved)
+            {
+                currentPrefix = "SAVED_";
             }
         }
 

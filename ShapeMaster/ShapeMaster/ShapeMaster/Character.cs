@@ -40,9 +40,6 @@ namespace ShapeMaster
         // character movement status to pass to sub-sprites
         protected MovementStatus movementStatus;
 
-        // create sprite type object
-        protected SpriteType currentSpriteType;
-
         // Collision detection support
         bool collisionOccurred = false;
 
@@ -55,6 +52,9 @@ namespace ShapeMaster
 
         // Declare property to hold status of player's shape
         public ShapeStatus CharShapeStatus { get; protected set; }
+
+        // create sprite type object
+        public SpriteType CurrentSpriteType { get; protected set; }
 
         #endregion
 
@@ -86,7 +86,7 @@ namespace ShapeMaster
             mouth = new Mouth(contentManager, spriteType, width);
 
             // set the sprite type
-            currentSpriteType = spriteType;
+            CurrentSpriteType = spriteType;
         }
 
         #endregion
@@ -115,6 +115,11 @@ namespace ShapeMaster
             shape.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
             eyes.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
             mouth.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
+
+            // set the sprite type
+            shape.CurrentSpriteType = this.CurrentSpriteType;
+            eyes.CurrentSpriteType = this.CurrentSpriteType;
+            mouth.CurrentSpriteType = this.CurrentSpriteType;
         }
 
         /// <summary>

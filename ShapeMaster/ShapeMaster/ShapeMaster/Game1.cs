@@ -126,6 +126,7 @@ namespace ShapeMaster
 
             // update the player
             player.Update(keyboardState, gameTime);
+            npChar.CheckSpriteInteraction(player);
             npChar.Update(gameTime);
 
             // update the game time.

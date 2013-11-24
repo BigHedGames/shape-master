@@ -29,8 +29,8 @@ namespace ShapeMaster
         // Declare variables to hold mouth art
         Texture2D mouth;
 
-        // declare sprite type object
-        SpriteType currentSpriteType;
+        // hash table holding the various possible eyes
+        Dictionary<string, Texture2D> loadedMouth = new Dictionary<string, Texture2D>();
 
         #endregion
 
@@ -41,11 +41,8 @@ namespace ShapeMaster
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
         public Mouth(ContentManager contentManager, SpriteType spriteType, int spriteWidth)
-            : base(contentManager, spriteWidth)
+            : base(contentManager, spriteType, spriteWidth)
         {
-            // set sprite type
-            currentSpriteType = spriteType;
-
             // load the sprite image
             LoadContent(contentManager);
 
@@ -94,7 +91,9 @@ namespace ShapeMaster
         /// <param name="gameTime">The game time used to update the animation.</param>
         private void Animate(MovementStatus movementStatus, GameTime gameTime)
         {
-            if (currentSpriteType == SpriteType.CHARly)
+            SetSprite();
+
+            if (CurrentSpriteType == SpriteType.CHARly)
             {
                 if (movementStatus != MovementStatus.Stationary)
                 {
@@ -112,20 +111,32 @@ namespace ShapeMaster
             }
         }
 
+
+        /// <summary>
+        /// Set the sprite type
+        /// </summary>
+        private void SetSprite()
+        {
+            SetPrefix();
+            mouth = loadedMouth[currentPrefix + "MOUTH"];
+        }
+
         /// <summary>
         /// Method to load the content into the content manager.
         /// </summary>
         /// <param name="contentManager">The content manager.</param>
         private void LoadContent(ContentManager contentManager)
         {
-            if (currentSpriteType == SpriteType.CHARly)
+            // loop over all prefixes
+            foreach (string prefix in characterPrefixes)
             {
-                mouth = contentManager.Load<Texture2D>("CHAR_MOUTHZ");
-            }
+                // set the asset and dictionary strings
+                string imageStr = prefix + "MOUTH";
+                string dictionaryStr = imageStr;
+                if (prefix.Equals("CHAR_")) imageStr += "Z";
 
-            else
-            {
-                mouth = contentManager.Load<Texture2D>("MAD_MOUTH");
+                // load the content and insert into the dictionary
+                loadedMouth[dictionaryStr] = contentManager.Load<Texture2D>(imageStr);
             }
         }
 
