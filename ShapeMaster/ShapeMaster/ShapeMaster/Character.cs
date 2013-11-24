@@ -43,6 +43,9 @@ namespace ShapeMaster
         // create sprite type object
         protected SpriteType currentSpriteType;
 
+        // Collision detection support
+        bool collisionOccurred = false;
+
         #endregion
 
         #region Properties
@@ -112,6 +115,18 @@ namespace ShapeMaster
             shape.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
             eyes.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
             mouth.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
+        }
+
+        /// <summary>
+        /// Checks to see if 2 sprites have collided
+        /// </summary>
+        public void checkForCollisions()
+        {
+            // determine if collision has occurred
+            if ()
+            {
+                collisionOccurred = true;
+            }
         }
 
         #endregion
