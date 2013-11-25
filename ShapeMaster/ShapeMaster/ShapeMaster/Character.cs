@@ -62,6 +62,15 @@ namespace ShapeMaster
             }
         }
 
+        // Get shape texture
+        public Texture2D Texture
+        {
+            get
+            {
+                return shape.Texture;
+            }
+        }
+
         #endregion
 
         #region Constructor
@@ -133,10 +142,14 @@ namespace ShapeMaster
         /// </summary>
         public bool CheckForCollisions(Character characterToCheck)
         {
-            // determine if collision has occurred
+            // Determine if collision has occurred between 2 sprite rectangles
             if (CollisionRectangle.Intersects(characterToCheck.CollisionRectangle))
             {
-                return true;
+                // Check for pixel-perfect collision
+                if (PixelPerfect(this, characterToCheck))
+                {
+                    return true;
+                }
             }
 
             return false;
@@ -145,6 +158,45 @@ namespace ShapeMaster
         #endregion
 
         #region Private Methods
+        /// <summary>
+        /// Check for pixel-perfect collisions
+        /// </summary>
+        /// <param name="rectangle0"></param>
+        /// <param name="rectangle1"></param>
+        /// <returns></returns>
+        private bool PixelPerfect(Character charA, Character charB)
+        {
+            // Get Color data of each Texture
+            Color[] bitsA = new Color[charA.Texture.Width * charA.Texture.Height];
+            charA.Texture.GetData(bitsA);
+            Color[] bitsB = new Color[charB.Texture.Width * charB.Texture.Height];
+            charB.Texture.GetData(bitsB);
+
+            // Calculate the intersecting rectangle
+            int x1 = Math.Max(charA.CollisionRectangle.X, charB.CollisionRectangle.X);
+            int x2 = Math.Min(charA.CollisionRectangle.X + charA.CollisionRectangle.Width, charB.CollisionRectangle.X + charB.CollisionRectangle.Width);
+
+            int y1 = Math.Max(charA.CollisionRectangle.Y, charB.CollisionRectangle.Y);
+            int y2 = Math.Min(charA.CollisionRectangle.Y + charA.CollisionRectangle.Height, charB.CollisionRectangle.Y + charB.CollisionRectangle.Height);
+
+            // For each single pixel in the intersecting rectangle
+            for (int y = y1; y < y2; ++y)
+            {
+                for (int x = x1; x < x2; ++x)
+                {
+                    // Get the color from each texture
+                    Color a = bitsA[2*(x - charA.CollisionRectangle.X) + 2*(y - charA.CollisionRectangle.Y) * charA.Texture.Width];
+                    Color b = bitsB[2*(x - charB.CollisionRectangle.X) + 2*(y - charB.CollisionRectangle.Y) * charB.Texture.Width];
+
+                    if (a.A != 0 && b.A != 0) // If both colors are not transparent (the alpha channel is not 0), then there is a collision
+                    {
+                        return true;
+                    }
+                }
+            }
+            // If no collision occurred by now, we're clear.
+            return false;
+        }
         
         #endregion
     }

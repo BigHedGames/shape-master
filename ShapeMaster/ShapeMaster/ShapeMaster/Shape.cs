@@ -42,6 +42,37 @@ namespace ShapeMaster
 
         #endregion
 
+        #region Properties
+        public Texture2D Texture
+        {
+            get
+            {
+                if (charShapeStatus == ShapeStatus.Circle)
+                {
+                    return shapeCircle;
+                }
+
+                if (charShapeStatus == ShapeStatus.Square)
+                {
+                    return shapeSquare;
+                }
+
+                if (charShapeStatus == ShapeStatus.Star)
+                {
+                    return shapeStar;
+                }
+
+                if (charShapeStatus == ShapeStatus.Triangle)
+                {
+                    return shapeTriangle;
+                }
+
+                throw new Exception("Shape status undefined in Shape.Texture property.");
+            }
+        }
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
