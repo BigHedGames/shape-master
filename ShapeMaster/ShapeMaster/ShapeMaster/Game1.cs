@@ -44,6 +44,10 @@ namespace ShapeMaster
         // random number generation support
         Random randNum = new Random();
 
+        // pause support
+        bool pauseKeyDown = false;
+        bool paused = false;
+
         #endregion
 
         #region Constructor
@@ -124,10 +128,18 @@ namespace ShapeMaster
             // Get keyboard state to move player sprite
             KeyboardState keyboardState = Keyboard.GetState();
 
+            // Pausing support
+            checkPauseKey(keyboardState);
+            if (paused)
+            {
+                return;
+            }
+
             // update the player
             player.Update(keyboardState, gameTime);
-            npChar.CheckSpriteInteraction(player);
+            npChar.CheckSpriteColor(player);
             npChar.Update(gameTime);
+            paused = npChar.CheckForCollisions(player);
 
             // update the game time.
             base.Update(gameTime);
@@ -157,5 +169,28 @@ namespace ShapeMaster
             base.Draw(gameTime);
         }
         #endregion
+
+        #region Private Methods
+        /// <summary>
+        /// Check for pause
+        /// </summary>
+        /// <param name="keyboardState"></param>
+        private void checkPauseKey(KeyboardState keyboardState)
+        {
+            bool pauseKeyDownThisFrame = (keyboardState.IsKeyDown(Keys.Escape));
+            // If key was not down before, but is down now, we toggle the
+            // pause setting
+            if (!pauseKeyDown && pauseKeyDownThisFrame)
+            {
+                if (!paused)
+                    paused = true;
+                else
+                    paused = false;
+            }
+            pauseKeyDown = pauseKeyDownThisFrame;
+        }
+
+        #endregion
+
     }
 }

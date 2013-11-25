@@ -40,9 +40,6 @@ namespace ShapeMaster
         // character movement status to pass to sub-sprites
         protected MovementStatus movementStatus;
 
-        // Collision detection support
-        bool collisionOccurred = false;
-
         #endregion
 
         #region Properties
@@ -55,6 +52,15 @@ namespace ShapeMaster
 
         // create sprite type object
         public SpriteType CurrentSpriteType { get; protected set; }
+
+        // create collision rectangle functionality
+        public Rectangle CollisionRectangle
+        {
+            get
+            {
+                return positionRectangle;
+            }
+        }
 
         #endregion
 
@@ -125,13 +131,15 @@ namespace ShapeMaster
         /// <summary>
         /// Checks to see if 2 sprites have collided
         /// </summary>
-        public void checkForCollisions()
+        public bool CheckForCollisions(Character characterToCheck)
         {
             // determine if collision has occurred
-            if ()
+            if (CollisionRectangle.Intersects(characterToCheck.CollisionRectangle))
             {
-                collisionOccurred = true;
+                return true;
             }
+
+            return false;
         }
 
         #endregion

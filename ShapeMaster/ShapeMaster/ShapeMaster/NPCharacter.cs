@@ -82,7 +82,7 @@ namespace ShapeMaster
         /// Handles sprite-to-sprite interaction (collision detection, sprite types, etc.).
         /// </summary>
         /// <param name="character">The character to check against.</param>
-        public void CheckSpriteInteraction(Character character)
+        public void CheckSpriteColor(Character character)
         {
             // if the sprite we're checking against is CHARly
             if (character.CurrentSpriteType == SpriteType.CHARly)
