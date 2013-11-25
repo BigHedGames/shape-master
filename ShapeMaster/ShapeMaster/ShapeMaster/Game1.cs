@@ -154,7 +154,7 @@ namespace ShapeMaster
         protected override void Draw(GameTime gameTime)
         {
             // Black background
-            GraphicsDevice.Clear(Color.Purple);
+            GraphicsDevice.Clear(Color.Black);
 
             // begin the sprite batch
             spriteBatch.Begin();
