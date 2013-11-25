@@ -24,6 +24,7 @@ namespace ShapeMaster
         #region Fields
 
         // determines position of the character
+        protected Vector2 positionVector;
         protected Rectangle positionRectangle;
 
         // movement boundaries for screen
@@ -88,7 +89,8 @@ namespace ShapeMaster
         public Character(ContentManager contentManager, SpriteType spriteType,int x, int y, int width, 
             int height, int windowWidth, int windowHeight)
         {
-            // define the position rectangle
+            // define the position vector and rectangle
+            positionVector = new Vector2(x - width / 2, y - width / 2);
             positionRectangle = new Rectangle(x - width / 2, y - height / 2, width, height);
 
             // set boundaries for characters
@@ -127,6 +129,8 @@ namespace ShapeMaster
         public void Update(GameTime gameTime)
         {
             // update the sub-sprites
+            positionRectangle.X = (int)(positionVector.X);
+            positionRectangle.Y = (int)(positionVector.Y);
             shape.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
             eyes.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
             mouth.Update(positionRectangle, CharShapeStatus, movementStatus, gameTime);
@@ -158,6 +162,7 @@ namespace ShapeMaster
         #endregion
 
         #region Private Methods
+
         /// <summary>
         /// Check for pixel-perfect collisions
         /// </summary>

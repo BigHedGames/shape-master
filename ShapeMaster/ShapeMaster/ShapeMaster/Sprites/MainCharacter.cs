@@ -73,7 +73,7 @@ namespace ShapeMaster
         #endregion
 
         #region Private Methods
-            /// <summary>
+        /// <summary>
         /// Move the sprite based on keyboard input.
         /// </summary>
         /// <param name="keyboardState">The keyboard state which provides the keyboard input.</param>
@@ -83,29 +83,29 @@ namespace ShapeMaster
             if (keyboardState.IsKeyDown(Keys.Right) && keyboardState.IsKeyDown(Keys.Up))
             {
                 movementStatus = MovementStatus.NorthEast;
-                positionRectangle.Y -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
-                positionRectangle.X += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+                positionVector.Y -= (float)(Velocity * DIAGONAL_FACTOR);
+                positionVector.X += (float)(Velocity * DIAGONAL_FACTOR);
             }
 
             else if (keyboardState.IsKeyDown(Keys.Right) && keyboardState.IsKeyDown(Keys.Down))
             {
                 movementStatus = MovementStatus.SouthEast;
-                positionRectangle.Y += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
-                positionRectangle.X += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+                positionVector.Y += (float)(Velocity * DIAGONAL_FACTOR);
+                positionVector.X += (float)(Velocity * DIAGONAL_FACTOR);
             }
 
             else if (keyboardState.IsKeyDown(Keys.Left) && keyboardState.IsKeyDown(Keys.Up))
             {
                 movementStatus = MovementStatus.NorthWest;
-                positionRectangle.Y -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
-                positionRectangle.X -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+                positionVector.Y -= (float)(Velocity * DIAGONAL_FACTOR);
+                positionVector.X -= (float)(Velocity * DIAGONAL_FACTOR);
             }
 
             else if (keyboardState.IsKeyDown(Keys.Left) && keyboardState.IsKeyDown(Keys.Down))
             {
                 movementStatus = MovementStatus.SouthWest;
-                positionRectangle.Y += (int)Math.Round(Velocity * DIAGONAL_FACTOR);
-                positionRectangle.X -= (int)Math.Round(Velocity * DIAGONAL_FACTOR);
+                positionVector.Y += (float)(Velocity * DIAGONAL_FACTOR);
+                positionVector.X -= (float)(Velocity * DIAGONAL_FACTOR);
             }
 
             // logic for movement in standard four directions
@@ -114,25 +114,25 @@ namespace ShapeMaster
                 if (keyboardState.IsKeyDown(Keys.Up))
                 {
                     movementStatus = MovementStatus.North;
-                    positionRectangle.Y -= Velocity;
+                    positionVector.Y -= Velocity;
                 }
 
                 if (keyboardState.IsKeyDown(Keys.Down))
                 {
                     movementStatus = MovementStatus.South;
-                    positionRectangle.Y += Velocity;
+                    positionVector.Y += Velocity;
                 }
 
                 if (keyboardState.IsKeyDown(Keys.Left))
                 {
                     movementStatus = MovementStatus.West;
-                    positionRectangle.X -= Velocity;
+                    positionVector.X -= Velocity;
                 }
 
                 if (keyboardState.IsKeyDown(Keys.Right))
                 {
                     movementStatus = MovementStatus.East;
-                    positionRectangle.X += Velocity;
+                    positionVector.X += Velocity;
                 }
             }
 
@@ -144,21 +144,21 @@ namespace ShapeMaster
             }
 
             // If the sprite has moved passed the boundaries, put it back.
-            if (positionRectangle.X < boundaryLeft)
+            if (positionVector.X < boundaryLeft)
             {
-                positionRectangle.X = boundaryLeft;
+                positionVector.X = boundaryLeft;
             }
-            if (positionRectangle.Y < boundaryTop)
+            if (positionVector.Y < boundaryTop)
             {
-                positionRectangle.Y = boundaryTop;
+                positionVector.Y = boundaryTop;
             }
-            if (positionRectangle.X + positionRectangle.Width > boundaryRight)
+            if (positionVector.X + positionRectangle.Width > boundaryRight)
             {
-                positionRectangle.X = boundaryRight - positionRectangle.Width;
+                positionVector.X = boundaryRight - positionRectangle.Width;
             }
-            if (positionRectangle.Y + positionRectangle.Height > boundaryBottom)
+            if (positionVector.Y + positionRectangle.Height > boundaryBottom)
             {
-                positionRectangle.Y = boundaryBottom - positionRectangle.Height;
+                positionVector.Y = boundaryBottom - positionRectangle.Height;
             }
         }
 

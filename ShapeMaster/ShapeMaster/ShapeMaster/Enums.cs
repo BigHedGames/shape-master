@@ -5,8 +5,19 @@ using System.Text;
 
 namespace ShapeMaster
 {
+    #region ShapeStatus
+
     // declare enumeration that stores the player shape status
-    public enum ShapeStatus { Circle, Square, Star, Triangle };
+    public enum ShapeStatus { 
+        Circle, 
+        Square, 
+        Star, 
+        Triangle 
+    };
+
+    #endregion
+
+    #region MovementStatus
 
     // declare enumeration that stores the player movement status
     public enum MovementStatus
@@ -22,6 +33,10 @@ namespace ShapeMaster
         NorthWest
     };
 
+    #endregion
+
+    #region SpriteType
+
     // declare enumeration that stores 3 types of sprites
     public enum SpriteType
     {
@@ -30,4 +45,6 @@ namespace ShapeMaster
         Saved,
         Crazy
     };
+
+    #endregion
 }

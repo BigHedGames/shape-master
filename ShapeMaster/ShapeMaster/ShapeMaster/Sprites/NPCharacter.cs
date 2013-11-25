@@ -60,8 +60,8 @@ namespace ShapeMaster
             CharShapeStatus = (ShapeStatus)randNum.Next(maxShapes);
 
             // set initial random location
-            positionRectangle.X = randNum.Next(width / 2, (windowWidth - (width / 2)) + 1);
-            positionRectangle.Y = randNum.Next(height / 2, (windowHeight - (height / 2)) + 1);
+            positionVector.X = randNum.Next(width / 2, (windowWidth - (width / 2)) + 1);
+            positionVector.Y = randNum.Next(height / 2, (windowHeight - (height / 2)) + 1);
 
             // set random direction & speed
             velocityVector = new Vector2(0, 0);
@@ -70,8 +70,6 @@ namespace ShapeMaster
                 velocityVector.X = (float)(2.0 * INITIAL_VELOCITY * randNum.NextDouble() - INITIAL_VELOCITY);
                 velocityVector.Y = (float)(2.0 * INITIAL_VELOCITY * randNum.NextDouble() - INITIAL_VELOCITY);
             }
-
-            Console.WriteLine("Velocity: " + velocityVector.X + " " + velocityVector.Y);
         }
 
         #endregion
@@ -131,12 +129,8 @@ namespace ShapeMaster
         private void Move()
         {
             // make npc move
-            int velocityVectorX = ProcessVelocity(velocityVector.X);
-            int velocityVectorY = ProcessVelocity(velocityVector.Y);
-            Console.WriteLine("Velocity: " + velocityVector.X + ", " + velocityVector.Y + "("
-                + velocityVectorX + ", " + velocityVectorY + ")");
-            positionRectangle.X += velocityVectorX;
-            positionRectangle.Y += velocityVectorY;
+            positionVector.X += velocityVector.X;
+            positionVector.Y += velocityVector.Y;
 
             // If the sprite has moved passed the boundaries, put it back.
             if (positionRectangle.X < boundaryLeft && velocityVector.X < 0)
@@ -155,35 +149,6 @@ namespace ShapeMaster
             {
                 velocityVector.Y *= -1;
             }
-        }
-
-        /// <summary>
-        /// Process the integer velocity to better approach a float using random numbers.
-        /// </summary>
-        /// <param name="number">The floating point number.</param>
-        /// <returns></returns>
-        private int ProcessVelocity(float number)
-        {
-            // first round down (floor function)
-            int velocityToReturn = (int)number;
-
-            // then draw a random number between 0 and 1. If the number is greater than the decimal
-            // value, add 0 to the velocity. Else, add 1.
-            if (number < 0)
-            {
-                double remainder = Math.Abs(number) - Math.Abs(velocityToReturn);
-                if (Math.Abs(number) < 1) remainder = Math.Abs(number);
-                velocityToReturn -= (randNum.NextDouble() < remainder ? 1 : 0);
-                Console.WriteLine(velocityToReturn + " " + remainder);
-            }
-            else
-            {
-                double remainder = number - velocityToReturn;
-                if (number < 1) remainder = number;
-                velocityToReturn += (randNum.NextDouble() < remainder ? 1 : 0);
-                Console.WriteLine(remainder);
-            }
-            return velocityToReturn;
         }
 
         #endregion
