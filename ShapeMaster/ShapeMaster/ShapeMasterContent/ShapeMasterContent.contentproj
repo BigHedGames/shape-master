@@ -30,11 +30,6 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MAD_EYEZ.png">
-      <Name>MAD_EYEZ</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="MAD_MOUTH.png">
       <Name>MAD_MOUTH</Name>
       <Importer>TextureImporter</Importer>
@@ -105,6 +100,35 @@
     </Compile>
     <Compile Include="CHAR_EYEZSOUTH.png">
       <Name>CHAR_EYEZSOUTH</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MAD_EYEZNE.png">
+      <Name>MAD_EYEZNE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MAD_EYEZNORTH.png">
+      <Name>MAD_EYEZNORTH</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MAD_EYEZSE.png">
+      <Name>MAD_EYEZSE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="MAD_EYEZSOUTH.png">
+      <Name>MAD_EYEZSOUTH</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MAD_EYEZEAST.png">
+      <Name>MAD_EYEZEAST</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

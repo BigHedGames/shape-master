@@ -229,7 +229,7 @@ namespace ShapeMaster
                     // set the asset and dictionary strings
                     string imageStr = prefix + "EYEZ";
                     string dictionaryStr = imageStr + dir ;
-                    if (prefix.Equals("CHAR_")) imageStr += dir;
+                    if (prefix.Equals("CHAR_") || prefix.Equals("MAD_")) imageStr += dir;
 
                     // load the content and insert into the dictionary
                     loadedEyes[dictionaryStr] = contentManager.Load<Texture2D>(imageStr);
