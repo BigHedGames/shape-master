@@ -2,15 +2,6 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>MAD_EYEZ.png</Source>
-      <Name>MAD_EYEZ</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\MAD_EYEZ.xnb</Output>
-      <Time>2013-11-23T09:49:10.6259409-08:00</Time>
-    </Item>
-    <Item>
       <Source>MAD_MOUTH.png</Source>
       <Name>MAD_MOUTH</Name>
       <Importer>TextureImporter</Importer>
@@ -126,6 +117,51 @@
       <Options>None</Options>
       <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\CHAR_EYEZSOUTH.xnb</Output>
       <Time>2013-11-21T19:19:31.1276187-08:00</Time>
+    </Item>
+    <Item>
+      <Source>MAD_EYEZNE.png</Source>
+      <Name>MAD_EYEZNE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\MAD_EYEZNE.xnb</Output>
+      <Time>2013-12-01T17:15:45.5142341-08:00</Time>
+    </Item>
+    <Item>
+      <Source>MAD_EYEZNORTH.png</Source>
+      <Name>MAD_EYEZNORTH</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\MAD_EYEZNORTH.xnb</Output>
+      <Time>2013-12-01T17:15:45.5142341-08:00</Time>
+    </Item>
+    <Item>
+      <Source>MAD_EYEZSE.png</Source>
+      <Name>MAD_EYEZSE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\MAD_EYEZSE.xnb</Output>
+      <Time>2013-12-01T17:15:45.5298594-08:00</Time>
+    </Item>
+    <Item>
+      <Source>MAD_EYEZSOUTH.png</Source>
+      <Name>MAD_EYEZSOUTH</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\MAD_EYEZSOUTH.xnb</Output>
+      <Time>2013-12-01T17:15:45.5298594-08:00</Time>
+    </Item>
+    <Item>
+      <Source>MAD_EYEZEAST.png</Source>
+      <Name>MAD_EYEZEAST</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jason\Documents\GitHub\shape-master\ShapeMaster\ShapeMaster\ShapeMaster\bin\x86\Debug\Content\MAD_EYEZEAST.xnb</Output>
+      <Time>2013-12-01T17:15:45.5142341-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

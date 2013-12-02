@@ -72,6 +72,9 @@ namespace ShapeMaster
             }
         }
 
+        // Active/not active support
+        public bool IsActive { get; set; }
+
         #endregion
 
         #region Constructor
@@ -86,7 +89,7 @@ namespace ShapeMaster
         /// <param name="height">The height of the sprite.</param>
         /// <param name="windowWidth">The window width (needed for the boundaries).</param>
         /// <param name="windowHeight">The window height (needed for the boundaries).</param>
-        public Character(ContentManager contentManager, SpriteType spriteType,int x, int y, int width, 
+        public Character(ContentManager contentManager, SpriteType spriteType, int x, int y, int width,
             int height, int windowWidth, int windowHeight)
         {
             // define the position vector and rectangle
@@ -152,7 +155,17 @@ namespace ShapeMaster
                 // Check for pixel-perfect collision
                 if (PixelPerfect(this, characterToCheck))
                 {
-                    return true;
+                    // Check for collision type (between sprites)
+                    if (this.CurrentSpriteType == SpriteType.CHARly ||
+                        characterToCheck.CurrentSpriteType == SpriteType.CHARly)
+                    {
+                        // Check for if either sprite is a "mad" character
+                        if (this.CurrentSpriteType == SpriteType.Mad ||
+                            characterToCheck.CurrentSpriteType == SpriteType.Mad)
+                        {
+                            return true;
+                        }
+                    }
                 }
             }
 
@@ -184,14 +197,21 @@ namespace ShapeMaster
             int y1 = Math.Max(charA.CollisionRectangle.Y, charB.CollisionRectangle.Y);
             int y2 = Math.Min(charA.CollisionRectangle.Y + charA.CollisionRectangle.Height, charB.CollisionRectangle.Y + charB.CollisionRectangle.Height);
 
+            // Calculate image scaling factors
+            int scaleFactorXA = charA.Texture.Height / charA.CollisionRectangle.Width; // FIXME LATER!!!
+            int scaleFactorXB = charB.Texture.Height / charB.CollisionRectangle.Width; // FIXME LATER!!!
+            int scaleFactorYA = charA.Texture.Height / charA.CollisionRectangle.Height;
+            int scaleFactorYB = charB.Texture.Height / charB.CollisionRectangle.Height;
+
+
             // For each single pixel in the intersecting rectangle
             for (int y = y1; y < y2; ++y)
             {
                 for (int x = x1; x < x2; ++x)
                 {
                     // Get the color from each texture
-                    Color a = bitsA[2*(x - charA.CollisionRectangle.X) + 2*(y - charA.CollisionRectangle.Y) * charA.Texture.Width];
-                    Color b = bitsB[2*(x - charB.CollisionRectangle.X) + 2*(y - charB.CollisionRectangle.Y) * charB.Texture.Width];
+                    Color a = bitsA[scaleFactorXA * (x - charA.CollisionRectangle.X) + scaleFactorYA * (y - charA.CollisionRectangle.Y) * charA.Texture.Width];
+                    Color b = bitsB[scaleFactorXB * (x - charB.CollisionRectangle.X) + scaleFactorYB * (y - charB.CollisionRectangle.Y) * charB.Texture.Width];
 
                     if (a.A != 0 && b.A != 0) // If both colors are not transparent (the alpha channel is not 0), then there is a collision
                     {
@@ -202,7 +222,7 @@ namespace ShapeMaster
             // If no collision occurred by now, we're clear.
             return false;
         }
-        
+
         #endregion
     }
 }
