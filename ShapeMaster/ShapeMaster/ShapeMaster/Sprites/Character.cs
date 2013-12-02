@@ -107,6 +107,9 @@ namespace ShapeMaster
 
             // set the sprite type
             CurrentSpriteType = spriteType;
+
+            // Active characters
+            IsActive = true;
         }
 
         #endregion
@@ -159,11 +162,20 @@ namespace ShapeMaster
                     if (this.CurrentSpriteType == SpriteType.CHARly ||
                         characterToCheck.CurrentSpriteType == SpriteType.CHARly)
                     {
-                        // Check for if either sprite is a "mad" character
+                        // Check for if the sprite collision involves a "mad" character
                         if (this.CurrentSpriteType == SpriteType.Mad ||
                             characterToCheck.CurrentSpriteType == SpriteType.Mad)
                         {
                             return true;
+                        }
+                        // Check for if the sprite collision involves a "saved" character
+                        if (this.CurrentSpriteType == SpriteType.Saved)
+                        {
+                            this.IsActive = false;
+                        }
+                        if (characterToCheck.CurrentSpriteType == SpriteType.Saved)
+                        {
+                            characterToCheck.IsActive = false;
                         }
                     }
                 }

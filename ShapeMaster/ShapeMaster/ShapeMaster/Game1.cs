@@ -39,7 +39,7 @@ namespace ShapeMaster
         MainCharacter player;
 
         // np characters support
-        NPCharacter npChar;
+        List<NPCharacter> npChars = new List<NPCharacter>();
 
         // random number generation support
         Random randNum = new Random();
@@ -96,8 +96,8 @@ namespace ShapeMaster
             // Load characters
             player = new MainCharacter(Content, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
                 CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT);
-            npChar = new NPCharacter(Content, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
-                CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, randNum);
+            npChars.Add(new NPCharacter(Content, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
+                CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, randNum));
 
         }
         #endregion
@@ -110,6 +110,13 @@ namespace ShapeMaster
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+            for (int i = npChars.Count - 1; i >= 0; i--)
+            {
+                if (!npChars[i].IsActive)
+                {
+                    npChars.Remove(npChars[i]);
+                }
+            }
         }
         #endregion
 
@@ -137,12 +144,21 @@ namespace ShapeMaster
 
             // update the player
             player.Update(keyboardState, gameTime);
-            npChar.CheckSpriteColor(player);
-            npChar.Update(gameTime);
-            paused = npChar.CheckForCollisions(player);
+            // Update NP Characters
+            for (int i = 0; i < npChars.Count(); i++)
+            {
+                npChars[i].CheckSpriteColor(player);
+                npChars[i].Update(gameTime);
+
+                // Check for Collisions
+                paused = npChars[i].CheckForCollisions(player);
+            }
 
             // update the game time.
             base.Update(gameTime);
+
+            // Call unload content
+            UnloadContent();
         }
         #endregion
 
@@ -161,7 +177,11 @@ namespace ShapeMaster
 
             // draw the sprites
             player.Draw(spriteBatch);
-            npChar.Draw(spriteBatch);
+
+            for (int i = 0; i < npChars.Count(); i++)
+            {
+                npChars[i].Draw(spriteBatch);
+            }
 
             // end the sprite batch
             spriteBatch.End();
