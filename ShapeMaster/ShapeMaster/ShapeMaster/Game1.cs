@@ -142,6 +142,7 @@ namespace ShapeMaster
 
             // update the player
             player.Update(keyboardState, gameTime);
+
             // Update NP Characters
             for (int i = 0; i < npChars.Count(); i++)
             {
@@ -149,7 +150,16 @@ namespace ShapeMaster
                 npChars[i].Update(gameTime);
 
                 // Check for Collisions
-                paused = npChars[i].CheckForCollisions(player);
+                if (npChars[i].CheckForCollisions(player) == true)
+                {
+                    paused = true;
+                }
+
+                // Always keep 2 NPChars spawned
+                if (npChars.Count < 3)
+                {
+                    NPCharSpawn();
+                }
             }
 
             // update the game time.
