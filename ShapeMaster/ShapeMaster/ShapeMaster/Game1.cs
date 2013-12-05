@@ -96,9 +96,7 @@ namespace ShapeMaster
             // Load characters
             player = new MainCharacter(Content, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
                 CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT);
-            npChars.Add(new NPCharacter(Content, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
-                CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, randNum));
-
+            NPCharSpawn();
         }
         #endregion
 
@@ -212,5 +210,16 @@ namespace ShapeMaster
 
         #endregion
 
+        #region Public Methods
+
+        /// <summary>
+        /// Spawns one new NPCharacter per call
+        /// </summary>
+        public void NPCharSpawn()
+        {
+            npChars.Add(new NPCharacter(Content, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, CHARACTER_WIDTH,
+                CHARACTER_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, randNum));
+        }
+        #endregion
     }
 }
